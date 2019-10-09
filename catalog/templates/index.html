@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Local Patient Homepage</h1>
+  <p>Welcome to Local Patient, a website developed by <em>Feinz</em>!</p>
+  <h2>Dynamic content</h2>
+  <p>The database has the following record counts:</p>
+  <ul>
+    <li><strong>Patient:</strong> {{ patient_number }}</li>
+    <li><strong>Patient Active:</strong> {{ patient_active }}</li>
+    <li><strong>Patient RIP:</strong> {{ patient_rip }}</li>
+    <li><strong>Patient MIA:</strong> {{ patient_mia }}</li>
+  </ul>
+{% endblock %}

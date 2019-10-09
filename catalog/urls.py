@@ -3,5 +3,5 @@ from . import views
 
 #pattern for catalog application
 urlpatterns = [
-
+    path('', views.index, name='index'),
 ]
