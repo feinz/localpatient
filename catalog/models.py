@@ -33,8 +33,8 @@ class patient(models.Model):
     
     def __str__(self):
         """String for representing the Model object."""
-        return self.title
+        return self.ic
     
     def get_absolute_url(self):
         """Returns the url to access a detail record for this patient."""
-        return reverse('book-detail', args=[str(self.id)])
+        return reverse('book-detail', args=[str(self.ic)])
