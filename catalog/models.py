@@ -13,7 +13,7 @@ class Patient(models.Model):
     )
 
     name = models.CharField(max_length=200)
-    ic = models.CharField(max_length=12)
+    ic = models.CharField(max_length=12, primary_key=True)
     address = models.TextField()
     description = models.TextField()
     transfer = models.CharField(max_length=200, default='Not transferred')
@@ -36,4 +36,4 @@ class Patient(models.Model):
     
     def get_absolute_url(self):
         """Returns the url to access a detail record for this patient."""
-        return reverse('name', args=[str(self.name)])
+        return reverse('patient_detail', args=[str(self.ic)])

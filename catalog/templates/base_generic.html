@@ -16,7 +16,8 @@
       {% block sidebar %}
         <ul class="sidebar-nav">
           <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="">All patient</a></li>
+          {% comment %} <li><a href="">All patient</a></li> {% endcomment %}
+          <li><a href="{% url 'patient_list' %}">All patient</a></li>
         </ul>
      {% endblock %}
       </div>
