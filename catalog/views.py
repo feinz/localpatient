@@ -9,12 +9,12 @@ def index(request):
 
     # Generate counts of some of the main objects
     patient_number = Patient.objects.all().count()
-    patient_active = Patient.objects.filter(patientstatus__exact='a').count()
-    patient_rip = Patient.objects.filter(patientstatus__exact='r').count()   
-    patient_mia = Patient.objects.filter(patientstatus__exact='m').count()
+    patient_act = Patient.objects.filter(patientstatus__exact='ACT').count()
+    patient_rip = Patient.objects.filter(patientstatus__exact='RIP').count()   
+    patient_mia = Patient.objects.filter(patientstatus__exact='MIA').count()
     context = {
         'patient_number': patient_number,
-        'patient_active': patient_active,
+        'patient_act': patient_act,
         'patient_rip': patient_rip,
         'patient_mia': patient_mia,
     }
@@ -24,6 +24,7 @@ def index(request):
 
 class PatientListView(generic.ListView):
     model = Patient
+    paginate_by = 20
 
 class PatientDetailView(generic.DetailView):
     model = Patient

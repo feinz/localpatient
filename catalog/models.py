@@ -7,9 +7,9 @@ class Patient(models.Model):
     
     """Model representing a patient details."""
     PATIENT_STATUS = (
-        ('a', 'Active'),
-        ('r', 'RIP'),
-        ('m', 'MIA'),
+        ('ACT', 'ACT'),
+        ('RIP', 'RIP'),
+        ('MIA', 'MIA'),
     )
 
     name = models.CharField(max_length=200)
@@ -19,10 +19,10 @@ class Patient(models.Model):
     transfer = models.CharField(max_length=200, default='Not transferred')
     patientnumber = models.CharField(max_length=12)
     patientstatus = models.CharField(
-        max_length=1,
+        max_length=3,
         choices=PATIENT_STATUS,
         blank=True,
-        default='a',
+        default='ACT',
         help_text='Patient status',
         )
 
@@ -36,4 +36,5 @@ class Patient(models.Model):
     
     def get_absolute_url(self):
         """Returns the url to access a detail record for this patient."""
+        # ic is the primary key for patient
         return reverse('patient_detail', args=[str(self.ic)])

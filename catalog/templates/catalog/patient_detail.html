@@ -1,25 +1,20 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Title: {{ list.ic }}</h1>
+{% comment %} patient is from patient_list.html {% endcomment %}
+  <div style="margin-left:20px;margin-top:20px">  
+    <h4>{{ patient.name }} Personal Information</h4>
 
-  <p><strong>identity card:</strong> <a href="">{{ list.ic }}</a></p> <!-- author detail link not yet defined -->
-  {% comment %} <p><strong>Summary:</strong> {{ book.summary }}</p>
-  <p><strong>ISBN:</strong> {{ book.isbn }}</p> 
-  <p><strong>Language:</strong> {{ book.language }}</p>  
-  <p><strong>Genre:</strong> {{ book.genre.all|join:", " }}</p>   {% endcomment %}
-
+    IC: {{ patient.ic }}</br>
+    Address: {{ patient.address }}
+  </div>
+  
   <div style="margin-left:20px;margin-top:20px">
-    <h4>Copies</h4>
+    <h4>Hospital Information</h4>
 
-    {% comment %} {% for copy in patient.bookinstance_set.all %}
-      <hr>
-      <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">{{ copy.get_status_display }}</p>
-      {% if copy.status != 'a' %}
-        <p><strong>Due to be returned:</strong> {{copy.due_back}}</p>
-      {% endif %}
-      <p><strong>Imprint:</strong> {{copy.imprint}}</p>
-      <p class="text-muted"><strong>Id:</strong> {{copy.id}}</p>
-    {% endfor %} {% endcomment %}
+    Description: {{ patient.description }}</br>
+    Transfer: {{ patient.transfer }}</br>
+    Patient Number: {{ patient.patientnumber }}</br>
+    Patient Status: {{ patient.patientstatus }}</br>
   </div>
 {% endblock %}
