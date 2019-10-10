@@ -9,26 +9,6 @@
       <form action="" method="post">
     {% csrf_token %}
     {{form|crispy}}
-    {% comment %} <table>
-    {{ form.as_table }}
-      <h4>Add New Patient</h4>
-      <tr>
-        <td>NAME: {{form.name}}</td><td>IC: {{form.ic}}</td>
-      </tr>
-      <tr>
-        <td>ADDRESS: {{form.address}}</td>
-      </tr>
-      <div style="margin-left:20px;margin-top:20px">
-      <tr>
-        <td>DESCRIPTION: {{form.description}}</td>
-      </tr>
-      <tr>
-        <td>TRANSFER: {{form.transfer}}</td><td>PATIENT NUMBER: {{form.patientnumber}}</td>
-      </tr>
-      <tr>
-        <td>PATIENT STATUS: {{form.patientstatus}}</td>
-      </tr>
-    </table> {% endcomment %}
 
     <input type="submit" value="Submit">
   </form>
