@@ -9,12 +9,12 @@ from catalog.models import Patient
 class patientAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Personal Information', {
-            'fields': ('name','ic','address')
+            'fields': ('name','identity_card','address')
         }),
         ('Hospital Information', {
-            'fields': ('description','transfer','patientnumber','patientstatus')
+            'fields': ('description','transfer','patient_number','patient_status')
         }),
     )
-    list_display = ('name','ic','address','description','transfer','patientnumber','patientstatus')
-    list_filter = ('patientstatus',)
+    list_display = ('name','identity_card','address','description','transfer','patient_number','patient_status')
+    list_filter = ('patient_status',)
     # fields = ['name','ic','description','transfer','patientnumber','patientstatus']

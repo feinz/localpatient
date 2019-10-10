@@ -14,9 +14,9 @@ def index(request):
 
     # Generate counts of some of the main objects
     patient_number = Patient.objects.all().count()
-    patient_act = Patient.objects.filter(patientstatus__exact='ACT').count()
-    patient_rip = Patient.objects.filter(patientstatus__exact='RIP').count()   
-    patient_mia = Patient.objects.filter(patientstatus__exact='MIA').count()
+    patient_act = Patient.objects.filter(patient_status__exact='ACT').count()
+    patient_rip = Patient.objects.filter(patient_status__exact='RIP').count()   
+    patient_mia = Patient.objects.filter(patient_status__exact='MIA').count()
     context = {
         'patient_number': patient_number,
         'patient_act': patient_act,
@@ -36,11 +36,11 @@ class PatientDetailView(LoginRequiredMixin, generic.DetailView):
 
 class PatientCreate(LoginRequiredMixin, CreateView):
     model = Patient
-    fields = ['name','ic','address','description','transfer','patientnumber','patientstatus']
+    fields = ['name','identity_card','address','description','transfer','patient_number','patient_status']
 
 class PatientUpdate(LoginRequiredMixin, UpdateView):
     model = Patient
-    fields = ['name','ic','address','description','transfer','patientnumber','patientstatus']
+    fields = ['name','identity_card','address','description','transfer','patient_number','patient_status']
 
 class PatientDelete(LoginRequiredMixin, DeleteView):
     model = Patient

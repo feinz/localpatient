@@ -6,7 +6,7 @@
   <div style="margin-left:20px;margin-top:20px">  
     <h4>{{ patient.name }} Personal Information</h4>
 
-    IC: {{ patient.ic }}</br>
+    IC: {{ patient.identity_card }}</br>
     Address: {{ patient.address }}
   </div>
   
@@ -15,10 +15,10 @@
 
     Description: {{ patient.description }}</br>
     Transfer: {{ patient.transfer }}</br>
-    Patient Number: {{ patient.patientnumber }}</br>
-    Patient Status: {{ patient.patientstatus }}</br>
+    Patient Number: {{ patient.patient_number }}</br>
+    Patient Status: {{ patient.patient_status }}</br>
 
-    </br><a href="{{ patient.ic }}/update/">Edit</a>
-    </br><a href="{{ patient.ic }}/delete/">Delete</a>
+    </br><a href="{{ patient.identity_card }}/update/">Edit</a>
+    </br><a href="{{ patient.identity_card }}/delete/">Delete</a>
   </div>
 {% endblock %}

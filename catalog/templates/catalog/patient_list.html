@@ -8,7 +8,7 @@
   <ol>
     {% for patient in patient_list %}
       <li>
-        <a href="{{ patient.get_absolute_url }}">{{patient.name}} ({{patient.ic}})</a>
+        <a href="{{ patient.get_absolute_url }}">{{patient.name}} ({{patient.identity_card}})</a>
       </li>
     {% endfor %}
   </ol>
