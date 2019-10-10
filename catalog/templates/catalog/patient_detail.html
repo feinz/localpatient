@@ -2,6 +2,7 @@
 
 {% block content %}
 {% comment %} patient is from patient_list.html {% endcomment %}
+
   <div style="margin-left:20px;margin-top:20px">  
     <h4>{{ patient.name }} Personal Information</h4>
 
@@ -16,5 +17,8 @@
     Transfer: {{ patient.transfer }}</br>
     Patient Number: {{ patient.patientnumber }}</br>
     Patient Status: {{ patient.patientstatus }}</br>
+
+    </br><a href="{{ patient.ic }}/update/">Edit</a>
+    </br><a href="{{ patient.ic }}/delete/">Delete</a>
   </div>
 {% endblock %}

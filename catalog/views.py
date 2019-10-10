@@ -34,14 +34,14 @@ class PatientListView(LoginRequiredMixin, generic.ListView):
 class PatientDetailView(LoginRequiredMixin, generic.DetailView):
     model = Patient
 
-class PatientCreate(CreateView):
-    model = Patient
-    fields = '__all__'
-
-class PatientUpdate(UpdateView):
+class PatientCreate(LoginRequiredMixin, CreateView):
     model = Patient
     fields = ['name','ic','address','description','transfer','patientnumber','patientstatus']
 
-class PatientDelete(DeleteView):
+class PatientUpdate(LoginRequiredMixin, UpdateView):
     model = Patient
-    success_url = reverse_lazy('patient_list')
+    fields = ['name','ic','address','description','transfer','patientnumber','patientstatus']
+
+class PatientDelete(LoginRequiredMixin, DeleteView):
+    model = Patient
+    success_url = reverse_lazy('patient_list') #where to redirect after deleted

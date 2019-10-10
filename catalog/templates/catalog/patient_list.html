@@ -3,11 +3,12 @@
 {% block content %}
 
 <h1>Patient List</h1>
+<a href="{%url 'patient_create' %}">Add Patient</a>
 {% if patient_list %}
   <ol>
     {% for patient in patient_list %}
       <li>
-        <a href="{{ patient.get_absolute_url }}">{{patient.name}}, {{patient.ic}}</a>
+        <a href="{{ patient.get_absolute_url }}">{{patient.name}} ({{patient.ic}})</a>
       </li>
     {% endfor %}
   </ol>
