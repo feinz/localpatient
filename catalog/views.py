@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView, UpdateView, DeleteView #easily create,update,view form
+from django.urls import reverse_lazy
 
 # Create your views here.
 from catalog.models import Patient
@@ -31,3 +33,15 @@ class PatientListView(LoginRequiredMixin, generic.ListView):
 
 class PatientDetailView(LoginRequiredMixin, generic.DetailView):
     model = Patient
+
+class PatientCreate(CreateView):
+    model = Patient
+    fields = '__all__'
+
+class PatientUpdate(UpdateView):
+    model = Patient
+    fields = ['name','ic','address','description','transfer','patientnumber','patientstatus']
+
+class PatientDelete(DeleteView):
+    model = Patient
+    success_url = reverse_lazy('patient_list')
