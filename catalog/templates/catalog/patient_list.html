@@ -2,7 +2,14 @@
 
 {% block content %}
 
-<h1>Patient List</h1>
+<h2>Patient List</h2>
+
+<h5>Search: </h5>
+<form method='GET' action='{% url "patient_list" %}'>
+    <input type='text' name='q' placeholder="Enter Search Keyword" value='{{ request.GET.q }}' id='entry'>
+    <input type='submit' value='Search' class='button_1' id='sub1'>
+</form>
+
 <a href="{%url 'patient_create' %}">Add Patient</a>
 {% if patient_list %}
   <ol>

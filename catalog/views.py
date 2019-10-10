@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.db.models import Q #to query multiple filter
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView #easily create,update,view form
@@ -26,10 +27,21 @@ def index(request):
     
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
+    
 
 class PatientListView(LoginRequiredMixin, generic.ListView):
-    model = Patient
-    paginate_by = 20
+    
+        model = Patient
+        paginate_by = 20
+
+        # search function
+        def get_queryset(self):
+            query = self.request.GET.get('q')
+            if (query != ''):
+                object_list = self.model.objects.filter(Q(name__contains=query) | Q(identity_card__contains=query) | Q(address__contains=query) | Q(description__contains=query) | Q(transfer__contains=query) | Q(patient_number__contains=query) | Q(patient_status__contains=query))
+            else:
+                object_list = self.model.objects.all()
+            return object_list
 
 class PatientDetailView(LoginRequiredMixin, generic.DetailView):
     model = Patient
