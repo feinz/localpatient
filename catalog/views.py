@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.views import generic
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 from catalog.models import Patient
 
+@login_required
 def index(request):
     """View function for home page of site."""
 
@@ -22,9 +25,9 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
 
-class PatientListView(generic.ListView):
+class PatientListView(LoginRequiredMixin, generic.ListView):
     model = Patient
     paginate_by = 20
 
-class PatientDetailView(generic.DetailView):
+class PatientDetailView(LoginRequiredMixin, generic.DetailView):
     model = Patient
