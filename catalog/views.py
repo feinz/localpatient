@@ -24,22 +24,17 @@ def index(request):
         'patient_rip': patient_rip,
         'patient_mia': patient_mia,
     }
-    
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
     
-
 class PatientListView(LoginRequiredMixin, generic.ListView):
-    
         model = Patient
         paginate_by = 20
-
         # search function
         def get_queryset(self):
             query = self.request.GET.get('q')
             if query:
                 object_list = self.model.objects.filter(Q(name__contains=query) | Q(identity_card__contains=query) | Q(address__contains=query) | Q(description__contains=query) | Q(transfer__contains=query) | Q(patient_number__contains=query) | Q(patient_status__contains=query))
-            
             else:
                 object_list = self.model.objects.all()
             return object_list
