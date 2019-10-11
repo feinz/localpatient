@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView #easily create,update,view form
 from django.urls import reverse_lazy
 
-# Create your views here.
+# importing Patient models
 from catalog.models import Patient
 
 @login_required
@@ -44,12 +44,12 @@ class PatientDetailView(LoginRequiredMixin, generic.DetailView):
 
 class PatientCreate(LoginRequiredMixin, CreateView):
     model = Patient
-    fields = ['name','identity_card','address','description','transfer','patient_number','patient_status']
+    fields = ['name','identity_card','address','description','transfer','patient_number','patient_status','time_registered']
     success_url = reverse_lazy('patient_list') #where to redirect after create
 
 class PatientUpdate(LoginRequiredMixin, UpdateView):
     model = Patient
-    fields = ['name','identity_card','address','description','transfer','patient_number','patient_status']
+    fields = ['name','identity_card','address','description','transfer','patient_number','patient_status','time_registered']
 
 class PatientDelete(LoginRequiredMixin, DeleteView):
     model = Patient

@@ -15,8 +15,8 @@ class Patient(models.Model):
 
     name = models.CharField(max_length=100)
     identity_card = models.CharField(max_length=12, primary_key=True)
-    address = models.TextField()
-    description = models.TextField()
+    address = models.CharField(max_length=200)
+    description = models.CharField(max_length=200)
     transfer = models.CharField(max_length=100, default='Not transferred')
     patient_number = models.CharField(max_length=12)
     patient_status = models.CharField(
@@ -28,6 +28,7 @@ class Patient(models.Model):
         )
     time_created = models.DateTimeField(auto_now_add=True, null=True)
     time_modified = models.DateTimeField(auto_now=True, null=True)
+    time_registered = models.DateTimeField(null=True)
 
     class Meta:
         ordering = ['name']

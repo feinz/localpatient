@@ -19,3 +19,4 @@ class PatientForm(forms.Form):
         default='ACT',
         help_text='Patient status',
         )
+    time_registered = forms.DateTimeField(input_formats=['%d/%m/%Y' '%H:%M'])
