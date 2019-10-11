@@ -11,5 +11,33 @@
     <li><strong>Patient RIP:</strong> {{ patient_rip }}</li>
     <li><strong>Patient MIA:</strong> {{ patient_mia }}</li>
   </ul>
-  <a href="{%url 'patient_create' %}">Add Patient</a>
+  {% comment %} <a href="{%url 'patient_create' %}">Add Patient</a> {% endcomment %}
+
+  <!-- Chart-->
+  <div id="container"></div>
+  <script src="https://code.highcharts.com/highcharts.src.js"></script>
+  <script>
+    var patient_act = {{ patient_act }};
+    Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Patients Statistic'
+        },
+        xAxis: {
+            categories: ['Active', 'RIP', 'Missing In Action']
+        },
+        series: [{
+            name: '2017',
+            data: [patient_act, 30, 20]
+        }, {
+            name: '2018',
+            data: [21, 13, 12]
+        }, {
+            name: '2019',
+            data: [32, 12, 11]
+        }]
+    });
+  </script>
 {% endblock %}
