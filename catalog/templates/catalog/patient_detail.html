@@ -23,5 +23,14 @@
     Date Modified: {{ patient.time_modified }}</br>
     </br><a href="{{ patient.identity_card }}/update/">Edit</a>
     </br><a href="{{ patient.identity_card }}/delete/">Delete</a>
+
+    </br><button onclick="myFunction()">Print</button>
+    <script>
+    function myFunction() {
+      window.print();
+    }
+    </script>
+
   </div>
+
 {% endblock %}
