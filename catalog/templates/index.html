@@ -18,6 +18,8 @@
   <script src="https://code.highcharts.com/highcharts.src.js"></script>
   <script>
     var patient_act = {{ patient_act }};
+    var patient_rip = {{ patient_rip}};
+    var patient_mia = {{ patient_mia }};
     Highcharts.chart('container', {
         chart: {
             type: 'column'
@@ -29,14 +31,8 @@
             categories: ['Active', 'RIP', 'Missing In Action']
         },
         series: [{
-            name: '2017',
-            data: [patient_act, 30, 20]
-        }, {
-            name: '2018',
-            data: [21, 13, 12]
-        }, {
             name: '2019',
-            data: [32, 12, 11]
+            data: [patient_act, patient_rip, patient_mia]
         }]
     });
   </script>
