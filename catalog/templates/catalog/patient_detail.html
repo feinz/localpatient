@@ -12,12 +12,15 @@
   
   <div style="margin-left:20px;margin-top:20px">
     <h4>Hospital Information</h4>
-
     Description: {{ patient.description }}</br>
     Transfer: {{ patient.transfer }}</br>
     Patient Number: {{ patient.patient_number }}</br>
     Patient Status: {{ patient.patient_status }}</br>
-
+  </div>
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>System Information</h4>
+    Date Created: {{ patient.date_created }}</br>
+    Date Modified: {{ patient.date_modified }}</br>
     </br><a href="{{ patient.identity_card }}/update/">Edit</a>
     </br><a href="{{ patient.identity_card }}/delete/">Delete</a>
   </div>

@@ -14,6 +14,9 @@ class patientAdmin(admin.ModelAdmin):
         ('Hospital Information', {
             'fields': ('description','transfer','patient_number','patient_status')
         }),
+        ('System Information', {
+            'fields': ('time_created','time_modified')
+        }),
     )
     list_display = ('name','identity_card','address','description','transfer','patient_number','patient_status')
     list_filter = ('patient_status',)

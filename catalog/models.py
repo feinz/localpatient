@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse # Used to generate URLs by reversing the URL patterns
+from django.utils import timezone
 
 # Create your models here.    
 
@@ -12,11 +13,11 @@ class Patient(models.Model):
         ('MIA', 'MIA'),
     )
 
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=100)
     identity_card = models.CharField(max_length=12, primary_key=True)
     address = models.TextField()
     description = models.TextField()
-    transfer = models.CharField(max_length=200, default='Not transferred')
+    transfer = models.CharField(max_length=100, default='Not transferred')
     patient_number = models.CharField(max_length=12)
     patient_status = models.CharField(
         max_length=3,
@@ -25,6 +26,8 @@ class Patient(models.Model):
         default='ACT',
         help_text='Patient status',
         )
+    time_created = models.DateTimeField(auto_now_add=True, null=True)
+    time_modified = models.DateTimeField(auto_now=True, null=True)
 
     class Meta:
         ordering = ['name']
@@ -38,3 +41,8 @@ class Patient(models.Model):
         """Returns the url to access a detail record for this patient."""
         # ic is the primary key for patient
         return reverse('patient_detail', args=[str(self.identity_card)])
+
+    # time
+# class TimeEdit(models.Model):
+#     time_created = models.DateTimeField(auto_now_add=True)
+#     time_modified = models.DateTimeField(auto_now=True)
