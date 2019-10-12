@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse # Used to generate URLs by reversing the URL patterns
 from django.utils import timezone
+from django.core.validators import RegexValidator
 
 # Create your models here.    
 
@@ -14,7 +15,7 @@ class Patient(models.Model):
     )
 
     name = models.CharField(max_length=100)
-    identity_card = models.CharField(max_length=12, primary_key=True)
+    identity_card_number = models.CharField(max_length=12, primary_key=True, validators=[RegexValidator(r'^\d{12,12}$')])
     address = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     transfer = models.CharField(max_length=100, default='Not transferred')
@@ -41,7 +42,7 @@ class Patient(models.Model):
     def get_absolute_url(self):
         """Returns the url to access a detail record for this patient."""
         # ic is the primary key for patient
-        return reverse('patient_detail', args=[str(self.identity_card)])
+        return reverse('patient_detail', args=[str(self.identity_card_number)])
 
     # time
 # class TimeEdit(models.Model):

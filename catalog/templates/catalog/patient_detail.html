@@ -6,7 +6,7 @@
   <div style="margin-left:20px;margin-top:20px">  
     <h4>{{ patient.name }} Personal Information</h4>
 
-    IC: {{ patient.identity_card }}</br>
+    IC: {{ patient.identity_card_number }}</br>
     Address: {{ patient.address }}
   </div>
   
@@ -22,8 +22,8 @@
     <h4>System Information</h4>
     Date Created: {{ patient.time_created }}</br>
     Date Modified: {{ patient.time_modified }}</br>
-    </br><a href="{{ patient.identity_card }}/update/">Edit</a>
-    </br><a href="{{ patient.identity_card }}/delete/">Delete</a>
+    </br><a href="{{ patient.identity_card_number }}/update/">Edit</a>
+    </br><a href="{{ patient.identity_card_number }}/delete/">Delete</a>
 
     </br><button onclick="myFunction()">Print</button>
     <script>

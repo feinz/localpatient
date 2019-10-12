@@ -7,7 +7,7 @@ class PatientForm(forms.Form):
         ('MIA', 'MIA'),
     )
     name = forms.CharField(max_length=100, label='Patient Name')
-    identity_card = forms.CharField(max_length=12, primary_key=True)
+    identity_card_number = forms.CharField(max_length=12, primary_key=True)
     address = forms.CharField(max_length=100)
     description = forms.CharField(max_length=100)
     transfer = forms.CharField(max_length=100, default='Not transferred')

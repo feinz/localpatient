@@ -15,7 +15,7 @@
   <ol>
     {% for patient in patient_list %}
       <li>
-        <a href="{{ patient.get_absolute_url }}">{{patient.name}} ({{patient.identity_card}})</a>
+        <a href="{{ patient.get_absolute_url }}">{{patient.name}} ({{patient.identity_card_number}})</a>
       </li>
     {% endfor %}
   </ol>
