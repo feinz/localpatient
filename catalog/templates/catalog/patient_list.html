@@ -8,7 +8,7 @@
 <tr>
 <h5>Search: </h5>
 <form method='GET' action='{% url "patient_list" %}'>
-    <input type='text' name='q' placeholder="Enter Search Keyword" value='{{ request.GET.q }}' id='entry'>
+    <input type='text' name='q' placeholder="Search Anything" value='{{ request.GET.q }}' id='entry'>
     <input type='submit' value='Search' class='button_1' id='sub1'>
 </form>
 &nbsp&nbsp&nbsp&nbsp&nbsp<input type='button' value='Add Patient' class='button_2' id='add_patient_button' onclick="window.location.href='{%url 'patient_create' %}'">
