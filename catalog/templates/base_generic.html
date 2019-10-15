@@ -20,6 +20,7 @@
   <!-- XDSoft DateTimePicker -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+
 </head>
 <body>
   <div class="container-fluid">
@@ -29,7 +30,6 @@
 
         <ul class="sidebar-nav">
           <li><a href="{% url 'index' %}">Home</a></li>
-          {% comment %} <li><a href="">All patient</a></li> {% endcomment %}
           <li><a href="{% url 'patient_list' %}">Patient List</a></li>
         </ul>
 
@@ -54,7 +54,7 @@
             {% endif %}
             {% for i in paginator.page_range %}
               {% if page_obj.number == i %}
-                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                <li class="active"><span><h5><b>{{ i }}</b></h5> <span class="sr-only">(current)</span></span></li>
               {% else %}
                 <li><a href="?page={{ i }}">&nbsp;{{ i }}</a>&nbsp;</li>
               {% endif %}
@@ -69,7 +69,6 @@
         <!--end of pagination-->
       </div>
 
-      
     </div>
   </div>
     <!-- Bootstrap core JavaScript-->

@@ -4,22 +4,67 @@
 
 <h2>Patient List</h2>
 
+<table>
+<tr>
 <h5>Search: </h5>
 <form method='GET' action='{% url "patient_list" %}'>
     <input type='text' name='q' placeholder="Enter Search Keyword" value='{{ request.GET.q }}' id='entry'>
     <input type='submit' value='Search' class='button_1' id='sub1'>
 </form>
+&nbsp&nbsp&nbsp&nbsp&nbsp<input type='button' value='Add Patient' class='button_2' id='add_patient_button' onclick="window.location.href='{%url 'patient_create' %}'">
+<p></p>
+</tr>
 
-<a href="{%url 'patient_create' %}">Add Patient</a>
-{% if patient_list %}
-  <ol>
-    {% for patient in patient_list %}
-      <li>
-        <a href="{{ patient.get_absolute_url }}">{{patient.name}} ({{patient.identity_card_number}})</a>
-      </li>
+<!--pagination for the top-->
+{% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;previous&nbsp; </a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span><h5><b>{{ i }}</b></h5> <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">&nbsp;{{ i }}</a>&nbsp;</li>
+      {% endif %}
     {% endfor %}
-  </ol>
-  {% else %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&nbsp;next&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+<!--end of pagination-->
+
+{% if patient_list %}
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>I.C Number</th>
+    <th>Status</th>
+    <th>Address</th>
+    <th>Description</th>
+    <th>Transfer</th>
+    <th>Patient Number</th>
+  </tr>
+  {% for patient in patient_list %}
+  <tr>
+    <td><a href="{{ patient.get_absolute_url }}">{{patient.name}}</a></td>
+    <td><a href="{{ patient.get_absolute_url }}">{{patient.identity_card_number}}</a></td>
+    <td><a href="{{ patient.get_absolute_url }}">{{patient.patient_status}}</a></td>
+    <td><a href="{{ patient.get_absolute_url }}">{{patient.address}}</a></td>
+    <td><a href="{{ patient.get_absolute_url }}">{{patient.description}}</a></td>
+    <td><a href="{{ patient.get_absolute_url }}">{{patient.transfer}}</a></td>
+    <td><a href="{{ patient.get_absolute_url }}">{{patient.patient_number}}</a></td>
+  </tr>
+  {% endfor %}
+
+</table>
+{% else %}
     <p>There is no patient registered.</p>
 {% endif %}
+
 {% endblock %}
