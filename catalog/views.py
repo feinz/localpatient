@@ -26,8 +26,6 @@ def index(request):
     }
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
-
-
     
 class PatientListView(LoginRequiredMixin, generic.ListView):
         model = Patient
@@ -40,13 +38,6 @@ class PatientListView(LoginRequiredMixin, generic.ListView):
             else:
                 object_list = self.model.objects.all()
             return object_list
-        def patient_listnum(self):
-            x = 20
-            num = "20"
-            context = {
-                'patient_numbering': num,
-            }
-            return x
 
 class PatientDetailView(LoginRequiredMixin, generic.DetailView):
     model = Patient
