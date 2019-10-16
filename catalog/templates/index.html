@@ -7,18 +7,28 @@
   <p>The database has the following record counts:</p>
   <ul>
     <li><strong>Patient:</strong> {{ patient_number }}</li>
-    <li><strong>Patient Active:</strong> {{ patient_act }}</li>
-    <li><strong>Patient RIP:</strong> {{ patient_rip }}</li>
-    <li><strong>Patient MIA:</strong> {{ patient_mia }}</li>
+    <li><strong>Patient Active:</strong> {{ patient_total_act }}</li>
+    <li><strong>Patient RIP:</strong> {{ patient_total_rip }}</li>
+    <li><strong>Patient MIA:</strong> {{ patient_total_mia }}</li>
   </ul>
-  {% comment %} <a href="{%url 'patient_create' %}">Add Patient</a> {% endcomment %}
+
+  <form method='GET' action='{% url "index" %}'>
+    <input type='text' name='q' placeholder="Enter Search Keyword" value='{{ request.GET.q }}' id='entry'>
+    <input type='submit' value='Filter Year' class='button_1' id='sub1'>
+  </form>
+  <ul>
+  <li><strong>Patient Active:</strong> {{ patient_yearinput_act }}</li>
+  <li><strong>Patient RIP:</strong> {{ patient_yearinput_rip }}</li>
+  <li><strong>Patient MIA:</strong> {{ patient_yearinput_mia }}</li>
+  </ul>
+
   <!-- Chart-->
   <div id="container"></div>
   <script src="https://code.highcharts.com/highcharts.src.js"></script>
   <script>
-    var patient_act = {{ patient_act }};
-    var patient_rip = {{ patient_rip}};
-    var patient_mia = {{ patient_mia }};
+    var patient_act = {{ patient_yearinput_act }};
+    var patient_rip = {{ patient_yearinput_rip }};
+    var patient_mia = {{ patient_yearinput_mia }};
     Highcharts.chart('container', {
         chart: {
             type: 'column'
