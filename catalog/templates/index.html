@@ -12,8 +12,14 @@
     <li><strong>Patient MIA:</strong> {{ patient_total_mia }}</li>
   </ul>
 
-  <form method='GET' action='{% url "index" %}'>
-    <input type='text' name='q' placeholder="Enter Search Keyword" value='{{ request.GET.q }}' id='entry'>
+  <select name="q" form="graphform">
+  <option value="1998">1998</option>
+  <option value="2001">2001</option>
+  <option value="2002">2002</option>
+  <option value="">All</option>
+  </select>
+  <form method='GET' action='{% url "index" %}' id="graphform">
+    {% comment %} <input type='text' name='q' placeholder="Enter Search Keyword" value='{{ request.GET.q }}' id='entry'> {% endcomment %}
     <input type='submit' value='Filter Year' class='button_1' id='sub1'>
   </form>
   <ul>

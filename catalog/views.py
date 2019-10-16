@@ -23,13 +23,14 @@ def index(request):
     #input query to display user input year graph
     query = request.GET.get('q')
     if not query:
-            patient_year = Patient.objects.all().dates('time_registered','year')
             context = {
             'patient_number': patient_number,
             'patient_total_act': patient_act,
             'patient_total_rip': patient_rip,
             'patient_total_mia': patient_mia,
-            'patient_filter_year': patient_year,
+            'patient_yearinput_mia': patient_mia,
+            'patient_yearinput_act': patient_act,
+            'patient_yearinput_rip': patient_rip,
     }
     else:
             # display current patient for each of the status
