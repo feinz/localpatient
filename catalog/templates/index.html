@@ -27,6 +27,7 @@
   <form method='GET' action='{% url "index" %}' id="graphform">
     <input pattern="[0-9]*" inputmode="numeric" type='number' name='q' placeholder="Or Enter Year" value='{{ request.GET.q }}' id='entry'>
     <button type='submit' value='Filter Year' class='waves-effect waves-light btn' id='sub1'>Go<i class="material-icons right">send</i></button>
+    &nbspOR&nbsp&nbsp<button type='submit' name='q' value='' class='waves-effect waves-light btn' id='b2019'>View All</button>
   </form>
   </br>
   <ul>
