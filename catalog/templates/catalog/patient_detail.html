@@ -4,14 +4,14 @@
 {% comment %} patient is from patient_list.html {% endcomment %}
 
   <div style="margin-left:20px;margin-top:20px">  
-    <h4>{{ patient.name }} Personal Information</h4>
+    <h5>{{ patient.name }} Personal Information</h5>
 
     IC: {{ patient.identity_card_number }}</br>
     Address: {{ patient.address }}
   </div>
   
   <div style="margin-left:20px;margin-top:20px">
-    <h4>Hospital Information</h4>
+    <h5>Hospital Information</h5>
     Description: {{ patient.description }}</br>
     Transfer: {{ patient.transfer }}</br>
     Patient Number: {{ patient.patient_number }}</br>
@@ -19,19 +19,12 @@
     Time Registered As Patient: {{ patient.time_registered }}</br>
   </div>
   <div style="margin-left:20px;margin-top:20px">
-    <h4>System Information</h4>
+    <h5>System Information</h5>
     Date Created: {{ patient.time_created }}</br>
-    Date Modified: {{ patient.time_modified }}</br>
-    </br><a href="{{ patient.identity_card_number }}/update/">Update</a>
-    </br><a href="{{ patient.identity_card_number }}/delete/">Delete</a>
-
-    </br><button onclick="myFunction()">Print</button>
-    <script>
-    function myFunction() {
-      window.print();
-    }
-    </script>
-
+    Date Modified: {{ patient.time_modified }}</br></br>
+    <button class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/update/'" type="button">Update</button>
+    &nbsp&nbsp&nbsp
+    <button class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/delete/'" type="button">Delete</button>
   </div>
 
 {% endblock %}

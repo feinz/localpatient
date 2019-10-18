@@ -13,20 +13,20 @@
   </ul>
 
   <form method='GET' action='{% url "index" %}' id="graphform">
-    <input type='submit' name='q' value='2019' class='waves-effect waves-light btn' id='b2019'>
-    <input type='submit' name='q' value='2018' class='waves-effect waves-light btn' id='b2018'>
-    <input type='submit' name='q' value='2017' class='waves-effect waves-light btn' id='b2017'>
-    <input type='submit' name='q' value='2016' class='waves-effect waves-light btn' id='b2016'>
-    <input type='submit' name='q' value='2015' class='waves-effect waves-light btn' id='b2015'>
-    <input type='submit' name='q' value='2014' class='waves-effect waves-light btn' id='b2014'>
-    <input type='submit' name='q' value='2013' class='waves-effect waves-light btn' id='b2013'>
-    <input type='submit' name='q' value='2012' class='waves-effect waves-light btn' id='b2012'>
-    <input type='submit' name='q' value='2011' class='waves-effect waves-light btn' id='b2011'>
-    <input type='submit' name='q' value='2010' class='waves-effect waves-light btn' id='b2010'>
+    <button type='submit' name='q' value='2019' class='waves-effect waves-light btn' id='b2019'>2019</button>
+    <button type='submit' name='q' value='2018' class='waves-effect waves-light btn' id='b2018'>2018</button>
+    <button type='submit' name='q' value='2017' class='waves-effect waves-light btn' id='b2017'>2017</button>
+    <button type='submit' name='q' value='2016' class='waves-effect waves-light btn' id='b2016'>2016</button>
+    <button type='submit' name='q' value='2015' class='waves-effect waves-light btn' id='b2015'>2015</button>
+    <button type='submit' name='q' value='2014' class='waves-effect waves-light btn' id='b2014'>2014</button>
+    <button type='submit' name='q' value='2013' class='waves-effect waves-light btn' id='b2013'>2013</button>
+    <button type='submit' name='q' value='2012' class='waves-effect waves-light btn' id='b2012'>2012</button>
+    <button type='submit' name='q' value='2011' class='waves-effect waves-light btn' id='b2011'>2011</button>
+    <button type='submit' name='q' value='2010' class='waves-effect waves-light btn' id='b2010'>2010</button>
   </form>
   <form method='GET' action='{% url "index" %}' id="graphform">
     <input type='text' name='q' placeholder="Or Enter Year" value='{{ request.GET.q }}' id='entry'>
-    <input type='submit' value='Filter Year' class='waves-effect waves-light btn' id='sub1'>
+    <button type='submit' value='Filter Year' class='waves-effect waves-light btn' id='sub1'>Filter Year</button>
   </form>
   </br>
   <ul>

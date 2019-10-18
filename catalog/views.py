@@ -58,7 +58,6 @@ def index(request):
 class PatientListView(LoginRequiredMixin, generic.ListView):
         model = Patient
         paginate_by = 10
-        # template_name = 'catalog/patient_list.html'
         # search function
         def get_queryset(self):
             query = self.request.GET.get('q')

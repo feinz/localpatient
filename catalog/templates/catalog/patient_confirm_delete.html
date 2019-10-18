@@ -2,13 +2,13 @@
 
 {% block content %}
 
-<h1>Delete Patient</h1>
+<h3>Delete Patient</h3>
 
 <p>Are you sure you want to delete the patient: {{ patient.name }}?</p>
 
 <form action="" method="POST">
   {% csrf_token %}
-  <input type="submit" value="Yes, delete.">
+  <input class="waves-effect waves-light btn" type="submit" value="Yes, delete.">
 </form>
 
 {% endblock %}

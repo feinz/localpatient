@@ -1,19 +1,20 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-
 <h4>Patient List</h4>
 
-<table>
+<table class="highlight">
 <tr>
 <h5>Search: </h5>
 <form method='GET' action='{% url "patient_list" %}'>
     <input type='text' name='q' placeholder="Search Anything" value='{{ request.GET.q }}' id='entry'>
-    <input type='submit' value='Search' class='waves-effect waves-light btn' id='sub1'>
+    <button type='submit' value='Search' class='btn waves-effect waves-light'>Search <i class="material-icons right">send</i></button>
 </form>
-&nbsp&nbsp&nbsp&nbsp&nbsp<input type='button' value='Add Patient' class='waves-effect waves-light btn' id='add_patient_button' onclick="window.location.href='{%url 'patient_create' %}'">
+&nbspor&nbsp
+<button type='button' value='Add Patient' class='waves-effect waves-light btn' onclick="window.location.href='{%url 'patient_create' %}'">Add Patient</button>
 <p></p>
 </tr>
+</table>
 
 <!--pagination for the top of this page-->
 {% if is_paginated %}
@@ -42,7 +43,8 @@
 {% comment %} <p id="urlpath"></p> {% endcomment %}
 
 {% if patient_list %}
-<table class="table">
+<table class="highlight">
+<thead>
   <tr>
     <th>Name</th>
     <th>I.C Number</th>
@@ -53,42 +55,28 @@
     <th>Patient Number</th>
     <th>Edit/Delete</th>
   </tr>
+  </thead>
   {% for patient in patient_list %}
+  <tbody>
   <tr>
     <td><a href="{{ patient.get_absolute_url }}">{{patient.name}}</a></td>
-    <td><a href="{{ patient.get_absolute_url }}">{{patient.identity_card_number}}</a></td>
-    <td><a href="{{ patient.get_absolute_url }}">{{patient.patient_status}}</a></td>
-    <td><a href="{{ patient.get_absolute_url }}">{{patient.address}}</a></td>
-    <td><a href="{{ patient.get_absolute_url }}">{{patient.description}}</a></td>
-    <td><a href="{{ patient.get_absolute_url }}">{{patient.transfer}}</a></td>
-    <td><a href="{{ patient.get_absolute_url }}">{{patient.patient_number}}</a></td>
+    <td>{{patient.identity_card_number}}</td>
+    <td>{{patient.patient_status}}</td>
+    <td>{{patient.address}}</td>
+    <td>{{patient.description}}</td>
+    <td>{{patient.transfer}}</td>
+    <td>{{patient.patient_number}}</td>
     <td>
       <button class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/update/'" type="button">Update</button></br></br>
       <button class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/delete/'" type="button">Delete</button>
-      {% comment %} </br><a href="{{ patient.get_absolute_url }}/update/">Update</a>
-      </br><a href="{{ patient.get_absolute_url }}/delete/">Delete</a> {% endcomment %}
     </td>
   </tr>
+  </tbody>
   {% endfor %}
 
 </table>
 {% else %}
     <p>There is no patient registered.</p>
 {% endif %}
-
-{% comment %} script to replacet patient numbering based on page {% endcomment %}
-<script>
-  {% comment %} document.getElementById("urlpath").innerHTML = 
-  "The full URL of this page is:<br>" + window.location.href;
-  var urlpath = window.location.href;
-  var x=0; {% endcomment %}
-  {% comment %} var urlpath = window.location.href;
-  var x=0;
-  x=x+1;
-  int i;
-  for(i=0,i<10,i++){
-    document.getElementById("patientnum").innerHTML = x;
-    } {% endcomment %}
-</script>
 
 {% endblock %}

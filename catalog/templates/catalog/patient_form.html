@@ -1,13 +1,11 @@
 {% extends "base_generic.html" %}
-
-{% load crispy_forms_tags %}
     
 {% block content %}
   <form action="" method="post">
     {% csrf_token %}
     {% comment %} <input type="submit" value="Save" style="float: right;"> {% endcomment %}
-    {{form|crispy}}
+    {{form}}
 
-    <input type="submit" value="Save">
+    <input class='waves-effect waves-light btn' type="submit" value="Save">
   </form>
 {% endblock %}
