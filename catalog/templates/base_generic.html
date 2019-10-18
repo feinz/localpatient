@@ -49,18 +49,18 @@
 </div>
 </nav>
 <ul class="sidenav" id="mobile-demo">
-    <li><a href="{% url 'index' %}">Home</a></li>
-    <li><a href="{% url 'patient_list' %}">Patient List</a></li>
+    <li><a href="{% url 'index' %}">Home<i class="small material-icons">home</i></a></li>
+    <li><a href="{% url 'patient_list' %}">Patient List<i class="small material-icons">people</i></a></li>
     </br>
     </br>
     </br>
     </br>
     </br>
     {% if user.is_authenticated %}
-    <li><a href="#">User: {{ user.get_username }}</a></li>
-    <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+    <li><a href="#">User: {{ user.get_username }}<i class="small material-icons">person</i></a></li>
+    <li><a href="{% url 'logout'%}?next={{request.path}}">Logout<i class="small material-icons">navigate_next</i></a></li>   
     {% else %}
-    <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+    <li><a href="{% url 'login'%}?next={{request.path}}">Login<i class="small material-icons">navigate_before</i></a></li>   
     {% endif %} 
 </ul>
 {% endblock %}
