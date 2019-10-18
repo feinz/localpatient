@@ -12,6 +12,9 @@
     <li><strong>Patient MIA:</strong> {{ patient_total_mia }}</li>
   </ul>
 
+    <!-- Chart-->
+  <div id="container"></div>
+  
   <form method='GET' action='{% url "index" %}' id="graphform">
     <button type='submit' name='q' value='2019' class='waves-effect waves-light btn' id='b2019'>2019</button>
     <button type='submit' name='q' value='2018' class='waves-effect waves-light btn' id='b2018'>2018</button>
@@ -39,8 +42,6 @@
   <li><strong>Patient MIA:</strong> {{ patient_yearinput_mia }}</li>
   </ul>
 
-  <!-- Chart-->
-  <div id="container"></div>
   <script src="https://code.highcharts.com/highcharts.src.js"></script>
   <script>
     var patient_act = {{ patient_yearinput_act }};
