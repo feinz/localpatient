@@ -5,7 +5,7 @@
 {% block content %}
   <form action="" method="post">
     {% csrf_token %}
-    <input type="submit" value="Save" style="float: right;">
+    {% comment %} <input type="submit" value="Save" style="float: right;"> {% endcomment %}
     {{form|crispy}}
 
     <input type="submit" value="Save">

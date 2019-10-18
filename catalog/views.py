@@ -54,14 +54,21 @@ def index(request):
 class PatientListView(LoginRequiredMixin, generic.ListView):
         model = Patient
         paginate_by = 10
+        # template_name = 'catalog/patient_list.html'
         # search function
         def get_queryset(self):
             query = self.request.GET.get('q')
-            if query:
+            if query: #if search something
                 object_list = self.model.objects.filter(Q(name__contains=query) | Q(identity_card_number__contains=query) | Q(address__contains=query) | Q(description__contains=query) | Q(transfer__contains=query) | Q(patient_number__contains=query) | Q(patient_status__contains=query))
-            else:
+                return object_list
+            else: #no search, display all patient
                 object_list = self.model.objects.all()
-            return object_list
+                x="test"
+                return object_list
+
+        def count_patient(self):
+            x="test"
+            return x
 
 class PatientDetailView(LoginRequiredMixin, generic.DetailView):
     model = Patient

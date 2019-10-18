@@ -39,6 +39,8 @@
 {% endif %}
 <!--end of pagination-->
 
+{% comment %} <p id="urlpath"></p> {% endcomment %}
+
 {% if patient_list %}
 <table class="table">
   <tr>
@@ -66,5 +68,20 @@
 {% else %}
     <p>There is no patient registered.</p>
 {% endif %}
+
+{% comment %} script to replacet patient numbering based on page {% endcomment %}
+<script>
+  {% comment %} document.getElementById("urlpath").innerHTML = 
+  "The full URL of this page is:<br>" + window.location.href;
+  var urlpath = window.location.href;
+  var x=0; {% endcomment %}
+  {% comment %} var urlpath = window.location.href;
+  var x=0;
+  x=x+1;
+  int i;
+  for(i=0,i<10,i++){
+    document.getElementById("patientnum").innerHTML = x;
+    } {% endcomment %}
+</script>
 
 {% endblock %}
