@@ -2,16 +2,16 @@
 
 {% block content %}
 
-<h2>Patient List</h2>
+<h4>Patient List</h4>
 
 <table>
 <tr>
 <h5>Search: </h5>
 <form method='GET' action='{% url "patient_list" %}'>
     <input type='text' name='q' placeholder="Search Anything" value='{{ request.GET.q }}' id='entry'>
-    <input type='submit' value='Search' class='button_1' id='sub1'>
+    <input type='submit' value='Search' class='waves-effect waves-light btn' id='sub1'>
 </form>
-&nbsp&nbsp&nbsp&nbsp&nbsp<input type='button' value='Add Patient' class='button_2' id='add_patient_button' onclick="window.location.href='{%url 'patient_create' %}'">
+&nbsp&nbsp&nbsp&nbsp&nbsp<input type='button' value='Add Patient' class='waves-effect waves-light btn' id='add_patient_button' onclick="window.location.href='{%url 'patient_create' %}'">
 <p></p>
 </tr>
 
@@ -51,6 +51,7 @@
     <th>Description</th>
     <th>Transfer</th>
     <th>Patient Number</th>
+    <th>Edit/Delete</th>
   </tr>
   {% for patient in patient_list %}
   <tr>
@@ -61,6 +62,12 @@
     <td><a href="{{ patient.get_absolute_url }}">{{patient.description}}</a></td>
     <td><a href="{{ patient.get_absolute_url }}">{{patient.transfer}}</a></td>
     <td><a href="{{ patient.get_absolute_url }}">{{patient.patient_number}}</a></td>
+    <td>
+      <button class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/update/'" type="button">Update</button></br></br>
+      <button class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/delete/'" type="button">Delete</button>
+      {% comment %} </br><a href="{{ patient.get_absolute_url }}/update/">Update</a>
+      </br><a href="{{ patient.get_absolute_url }}/delete/">Delete</a> {% endcomment %}
+    </td>
   </tr>
   {% endfor %}
 
