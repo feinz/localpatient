@@ -32,7 +32,7 @@
 {% block sidebar %}
 <nav class="red darken-4" role="navigation">
 <div class="nav-wrapper container">
-<img id="logo-container" href="#" class="center brand-logo" src="{% static 'logo/logo.png' %}">
+<a href="{% url 'index' %}"><img id="logo-container" href="#" class="center brand-logo" src="{% static 'logo/logo.png' %}"></a>
 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
   <ul class="left hide-on-med-and-down">
     <li><a href="{% url 'index' %}"><span class="white-text">Home</span></a></li>
