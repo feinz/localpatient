@@ -23,6 +23,7 @@ def index(request):
     #input query to display user input year graph
     query = request.GET.get('q')
     if not query:
+            currentyear = "All"
             context = {
             'patient_number': patient_number,
             'patient_total_act': patient_act,
@@ -31,12 +32,14 @@ def index(request):
             'patient_yearinput_mia': patient_mia,
             'patient_yearinput_act': patient_act,
             'patient_yearinput_rip': patient_rip,
+            'currentyear': currentyear,
     }
     else:
             # display current patient for each of the status
             patient_yearinput_mia = Patient.objects.filter(Q(time_registered__contains=query)&Q(patient_status__contains="MIA")).count()
             patient_yearinput_act = Patient.objects.filter(Q(time_registered__contains=query)&Q(patient_status__contains="ACT")).count()
             patient_yearinput_rip = Patient.objects.filter(Q(time_registered__contains=query)&Q(patient_status__contains="RIP")).count()
+            currentyear = query
             context = { 
             'patient_number': patient_number,
             'patient_total_act': patient_act,
@@ -45,7 +48,8 @@ def index(request):
             'patient_yearinput_mia': patient_yearinput_mia,
             'patient_yearinput_act': patient_yearinput_act,
             'patient_yearinput_rip': patient_yearinput_rip,
-    }
+            'currentyear': currentyear,
+            }
     # patient_time_registered = Patient.objects.filter(time_registered=patient_year)
 
     # Render the HTML template index.html with the data in the context variable
@@ -63,12 +67,7 @@ class PatientListView(LoginRequiredMixin, generic.ListView):
                 return object_list
             else: #no search, display all patient
                 object_list = self.model.objects.all()
-                x="test"
                 return object_list
-
-        def count_patient(self):
-            x="test"
-            return x
 
 class PatientDetailView(LoginRequiredMixin, generic.DetailView):
     model = Patient

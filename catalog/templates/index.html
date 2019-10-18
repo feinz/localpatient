@@ -12,17 +12,24 @@
     <li><strong>Patient MIA:</strong> {{ patient_total_mia }}</li>
   </ul>
 
-  <select name="q" form="graphform">
-  <option value="1998">1998</option>
-  <option value="2001">2001</option>
-  <option value="2002">2002</option>
-  <option value="">All</option>
-  </select>
   <form method='GET' action='{% url "index" %}' id="graphform">
-    {% comment %} <input type='text' name='q' placeholder="Enter Search Keyword" value='{{ request.GET.q }}' id='entry'> {% endcomment %}
+    <input type='submit' name='q' value='2019' class='button' id='b2019'>
+    <input type='submit' name='q' value='2018' class='button' id='b2018'>
+    <input type='submit' name='q' value='2017' class='button' id='b2017'>
+    <input type='submit' name='q' value='2016' class='button' id='b2016'>
+    <input type='submit' name='q' value='2015' class='button' id='b2015'>
+    <input type='submit' name='q' value='2014' class='button' id='b2014'>
+    <input type='submit' name='q' value='2013' class='button' id='b2013'>
+    <input type='submit' name='q' value='2012' class='button' id='b2012'>
+    <input type='submit' name='q' value='2011' class='button' id='b2011'>
+    <input type='submit' name='q' value='2010' class='button' id='b2010'>
+  </form>
+  <form method='GET' action='{% url "index" %}' id="graphform">
+    <input type='text' name='q' placeholder="Or Enter Year" value='{{ request.GET.q }}' id='entry'>
     <input type='submit' value='Filter Year' class='button_1' id='sub1'>
   </form>
   <ul>
+  <li><strong>For The Year:</strong> {{ currentyear }}</li>
   <li><strong>Patient Active:</strong> {{ patient_yearinput_act }}</li>
   <li><strong>Patient RIP:</strong> {{ patient_yearinput_rip }}</li>
   <li><strong>Patient MIA:</strong> {{ patient_yearinput_mia }}</li>
@@ -40,7 +47,7 @@
             type: 'column'
         },
         title: {
-            text: 'Patients Statistic'
+            text: 'Patients Statistic For The Year: {{ currentyear }}'
         },
         xAxis: {
             categories: ['Active', 'RIP', 'Missing In Action']
