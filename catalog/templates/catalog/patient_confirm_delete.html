@@ -9,6 +9,7 @@
 <form action="" method="POST">
   {% csrf_token %}
   <button class="waves-effect waves-light btn" type="submit" value="Yes, delete.">Yes, delete.</button>
+  &nbsp<button type='button' value='Cancel' class='waves-effect waves-light btn' onclick="history.back()">Cancel</button>
 </form>
 
 {% endblock %}
