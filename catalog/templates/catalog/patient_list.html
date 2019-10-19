@@ -8,8 +8,9 @@
 <h5>Search: </h5>
 <form method='GET' action='{% url "patient_list" %}'>
     <input type='text' name='q' placeholder="Search Anything" value='{{ request.GET.q }}' id='entry'>
-    <button type='submit' value='Search' class='btn waves-effect waves-light'>Search <i class="material-icons right">send</i></button>
+    <button type='submit' class='btn waves-effect waves-light'>Search <i class="material-icons right">send</i></button>
 </form>
+<button type='button' value='Cancel' class='waves-effect waves-light btn' onclick="location.href='{% url 'patient_list' %}'">Reset</button>
 &nbspor&nbsp
 <button type='button' value='Add Patient' class='waves-effect waves-light btn' onclick="window.location.href='{%url 'patient_create' %}'">Add Patient</button>
 <p></p>

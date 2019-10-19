@@ -62,7 +62,7 @@ class PatientListView(LoginRequiredMixin, generic.ListView):
         def get_queryset(self):
             query = self.request.GET.get('q')
             if query: #if search something
-                object_list = self.model.objects.filter(Q(name__contains=query) | Q(identity_card_number__contains=query) | Q(address__contains=query) | Q(description__contains=query) | Q(transfer__contains=query) | Q(patient_number__contains=query) | Q(patient_status__contains=query))
+                object_list = self.model.objects.filter(Q(name__contains=query) | Q(identity_card_number__contains=query) | Q(transfer__contains=query) | Q(patient_status__contains=query))
                 return object_list
             else: #no search, display all patient
                 object_list = self.model.objects.all()
