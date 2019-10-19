@@ -49,26 +49,28 @@
     <th>Name</th>
     <th>I.C Number</th>
     <th>Status</th>
-    <th>Address</th>
-    <th>Description</th>
+    {% comment %} <th>Address</th> {% endcomment %}
+    {% comment %} <th>Description</th> {% endcomment %}
     <th>Transfer</th>
-    <th>Patient Number</th>
-    <th>Edit/Delete</th>
+    {% comment %} <th>Patient Number</th> {% endcomment %}
+    <th>Options</th>
   </tr>
   </thead>
   {% for patient in patient_list %}
   <tbody>
   <tr>
-    <td><a href="{{ patient.get_absolute_url }}">{{patient.name}}</a></td>
+    {% comment %} <td><a href="{{ patient.get_absolute_url }}">{{patient.name}}</a></td> {% endcomment %}
+    <td>{{patient.name}}</td>
     <td>{{patient.identity_card_number}}</td>
     <td>{{patient.patient_status}}</td>
-    <td>{{patient.address}}</td>
-    <td>{{patient.description}}</td>
+    {% comment %} <td>{{patient.address}}</td>
+    <td>{{patient.description}}</td> {% endcomment %}
     <td>{{patient.transfer}}</td>
-    <td>{{patient.patient_number}}</td>
+    {% comment %} <td>{{patient.patient_number}}</td> {% endcomment %}
     <td>
-      <button class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/update/'" type="button">Update</button></br></br>
-      <button class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/delete/'" type="button">Delete</button>
+      <button style="width: 100%;" class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}'" type="button">View</button></br>
+      <button style="width: 100%;" class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/update/'" type="button">Update</button></br>
+      <button style="width: 100%;" class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/delete/'" type="button">Delete</button>
     </td>
   </tr>
   </tbody>

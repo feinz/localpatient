@@ -6,9 +6,16 @@
     {% csrf_token %}
     {% comment %} <input type="submit" value="Save" style="float: right;"> {% endcomment %}
     {{form}}
-
+    </br></br>
     <button class='waves-effect waves-light btn' type="submit" value="Save">Save</button>
     &nbsp<button type='button' value='Cancel' class='waves-effect waves-light btn' onclick="history.back()">Cancel</button>
+    </br>
   </form>
   </br>
+
+  {% comment %} <script>
+    $(document).ready(function() {
+    $('select').material_select();
+    });
+  </script> {% endcomment %}
 {% endblock %}

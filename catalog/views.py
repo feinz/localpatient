@@ -73,12 +73,13 @@ class PatientDetailView(LoginRequiredMixin, generic.DetailView):
 
 class PatientCreate(LoginRequiredMixin, CreateView):
     model = Patient
-    fields = ['name','identity_card_number','address','description','transfer','patient_number','patient_status','time_registered']
-    success_url = reverse_lazy('patient_create') #where to redirect after create
+    # fields = ['name','identity_card_number','address','description','transfer','patient_number','patient_status','time_registered']
+    fields = ['name','identity_card_number','transfer','patient_status','time_registered']
+    success_url = reverse_lazy('patient_list') #where to redirect after create
 
 class PatientUpdate(LoginRequiredMixin, UpdateView):
     model = Patient
-    fields = ['name','identity_card_number','address','description','transfer','patient_number','patient_status','time_registered']
+    fields = ['name','identity_card_number','transfer','patient_status','time_registered']
 
 class PatientDelete(LoginRequiredMixin, DeleteView):
     model = Patient

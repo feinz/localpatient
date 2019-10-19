@@ -12,12 +12,12 @@ class patientAdmin(admin.ModelAdmin):
             'fields': ('name','identity_card_number','address')
         }),
         ('Hospital Information', {
-            'fields': ('description','transfer','patient_number','patient_status')
+            'fields': ('transfer','patient_status')
         }),
         ('System Information', {
             'fields': ('time_created','time_modified')
         }),
     )
-    list_display = ('name','identity_card_number','address','description','transfer','patient_number','patient_status')
+    list_display = ('name','identity_card_number','transfer','patient_status')
     list_filter = ('patient_status',)
     # fields = ['name','ic','description','transfer','patientnumber','patientstatus']

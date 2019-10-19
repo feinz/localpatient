@@ -1,22 +1,21 @@
 from django import forms
 
 class PatientForm(forms.Form):
-    PATIENT_STATUS = (
-        ('ACT', 'ACT'),
-        ('RIP', 'RIP'),
-        ('MIA', 'MIA'),
+    PATIENT_STATUS = ( 
+        ('Active', 'Active'),
+        ('Rest In Peace', 'Rest In Peace'),
+        ('Missing', 'Missing'),
     )
     name = forms.CharField(max_length=100, label='Patient Name')
     identity_card_number = forms.CharField(max_length=12, primary_key=True)
-    address = forms.CharField(max_length=100)
-    description = forms.CharField(max_length=100)
+    # address = forms.CharField(max_length=100)
+    # description = forms.CharField(max_length=100)
     transfer = forms.CharField(max_length=100, default='Not transferred')
-    patient_number = forms.CharField(max_length=12, label='Patient Number')
-    patient_status = forms.CharField(
-        max_length=3,
+    # patient_number = forms.CharField(max_length=12, label='Patient Number')
+    patient_status = forms.ChoiceField(
+        max_length=20,
         choices=PATIENT_STATUS,
         blank=True,
-        default='ACT',
-        help_text='Patient status',
+        default='Active',
         )
     time_registered = forms.DateTimeField()

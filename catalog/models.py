@@ -9,27 +9,26 @@ class Patient(models.Model):
     
     """Model representing a patient details."""
     PATIENT_STATUS = (
-        ('ACT', 'ACT'),
-        ('RIP', 'RIP'),
-        ('MIA', 'MIA'),
+        ('Active', 'Active'),
+        ('Rest In Peace', 'Rest In Peace'),
+        ('Missing', 'Missing'),
     )
 
     name = models.CharField(max_length=100)
     identity_card_number = models.CharField(max_length=12, primary_key=True, validators=[RegexValidator(r'^\d{12,12}$')])
-    address = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
-    transfer = models.CharField(max_length=100, default='Not transferred')
-    patient_number = models.CharField(max_length=12)
+    # address = models.CharField(max_length=200)
+    # description = models.CharField(max_length=200)
+    transfer = models.CharField(max_length=100, default='Not Transferred')
+    # patient_number = models.CharField(max_length=12)
     patient_status = models.CharField(
-        max_length=3,
+        max_length=20,
         choices=PATIENT_STATUS,
         blank=True,
-        default='ACT',
-        help_text='Patient status',
+        default='Active',
         )
     time_created = models.DateTimeField(auto_now_add=True, null=True)
     time_modified = models.DateTimeField(auto_now=True, null=True)
-    time_registered = models.DateTimeField(null=True)
+    time_registered = models.DateTimeField(help_text='Pick Patient Register Time In Hospital',null=True)
 
     class Meta:
         ordering = ['name']
