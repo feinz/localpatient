@@ -1,4 +1,5 @@
 from django import forms
+MY_DATE_FORMATS = ['%d/%m/%Y',]
 
 class PatientForm(forms.Form):
     PATIENT_STATUS = ( 
@@ -18,4 +19,4 @@ class PatientForm(forms.Form):
         blank=True,
         default='Active',
         )
-    time_registered = forms.DateTimeField()
+    time_registered = forms.DateTimeField(input_formats=MY_DATE_FORMATS)

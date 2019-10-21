@@ -19,13 +19,6 @@
     <button type='submit' name='q' value='2017' class='waves-effect waves-light btn' id='b2017'>2017</button>
     <button type='submit' name='q' value='2016' class='waves-effect waves-light btn' id='b2016'>2016</button>
     <button type='submit' name='q' value='2015' class='waves-effect waves-light btn' id='b2015'>2015</button>
-    <button type='submit' name='q' value='2014' class='waves-effect waves-light btn' id='b2014'>2014</button>
-    <button type='submit' name='q' value='2013' class='waves-effect waves-light btn' id='b2013'>2013</button>
-    <button type='submit' name='q' value='2012' class='waves-effect waves-light btn' id='b2012'>2012</button>
-    <button type='submit' name='q' value='2011' class='waves-effect waves-light btn' id='b2011'>2011</button>
-    <button type='submit' name='q' value='2010' class='waves-effect waves-light btn' id='b2010'>2010</button>
-    </br>
-    </br>
     <button type='submit' name='q' value='' class='waves-effect waves-light btn' id='b2019'>View All</button>
   </form>
   <form method='GET' action='{% url "index" %}' id="graphform">
@@ -56,9 +49,23 @@
             categories: ['Active', 'RIP', 'Missing In Action']
         },
         series: [{
-            name: 'Patient',
+            name: '2015',
             data: [patient_act, patient_rip, patient_mia]
-        }]
+        }, {
+            name: '2016',
+            data: [patient_act, patient_rip, patient_mia]
+        }, {
+            name: '2017',
+            data: [patient_act, patient_rip, patient_mia]
+        }, {
+            name: '2018',
+            data: [patient_act, patient_rip, patient_mia]
+        }, {
+            name: '2019',
+            data: [patient_act, patient_rip, patient_mia]
+        }
+        
+        ]
     });
   </script>
 {% endblock %}
