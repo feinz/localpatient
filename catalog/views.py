@@ -16,29 +16,62 @@ def index(request):
 
     # Generate counts of some of the main objects
     patient_number = Patient.objects.all().count()
-    patient_act = Patient.objects.filter(patient_status__exact='ACT').count()
-    patient_rip = Patient.objects.filter(patient_status__exact='RIP').count()   
-    patient_mia = Patient.objects.filter(patient_status__exact='MIA').count()
+    patient_act = Patient.objects.filter(patient_status__exact='Active').count()
+    patient_rip = Patient.objects.filter(patient_status__exact='Rest In Peace').count()   
+    patient_mia = Patient.objects.filter(patient_status__exact='Missing').count()
 
     #input query to display user input year graph
     query = request.GET.get('q')
     if not query:
-            currentyear = "All"
+            currentyear = 0000
+
+            patient_year2015_mia = Patient.objects.filter(Q(time_registered__contains=2015)&Q(patient_status__contains="Missing")).count()
+            patient_year2015_act = Patient.objects.filter(Q(time_registered__contains=2015)&Q(patient_status__contains="Active")).count()
+            patient_year2015_rip = Patient.objects.filter(Q(time_registered__contains=2015)&Q(patient_status__contains="Rest In Peace")).count()
+
+            patient_year2016_mia = Patient.objects.filter(Q(time_registered__contains=2016)&Q(patient_status__contains="Missing")).count()
+            patient_year2016_act = Patient.objects.filter(Q(time_registered__contains=2016)&Q(patient_status__contains="Active")).count()
+            patient_year2016_rip = Patient.objects.filter(Q(time_registered__contains=2016)&Q(patient_status__contains="Rest In Peace")).count()
+
+            patient_year2017_mia = Patient.objects.filter(Q(time_registered__contains=2017)&Q(patient_status__contains="Missing")).count()
+            patient_year2017_act = Patient.objects.filter(Q(time_registered__contains=2017)&Q(patient_status__contains="Active")).count()
+            patient_year2017_rip = Patient.objects.filter(Q(time_registered__contains=2017)&Q(patient_status__contains="Rest In Peace")).count()
+
+            patient_year2018_mia = Patient.objects.filter(Q(time_registered__contains=2018)&Q(patient_status__contains="Missing")).count()
+            patient_year2018_act = Patient.objects.filter(Q(time_registered__contains=2018)&Q(patient_status__contains="Active")).count()
+            patient_year2018_rip = Patient.objects.filter(Q(time_registered__contains=2018)&Q(patient_status__contains="Rest In Peace")).count()
+
+            patient_year2019_mia = Patient.objects.filter(Q(time_registered__contains=2019)&Q(patient_status__contains="Missing")).count()
+            patient_year2019_act = Patient.objects.filter(Q(time_registered__contains=2019)&Q(patient_status__contains="Active")).count()
+            patient_year2019_rip = Patient.objects.filter(Q(time_registered__contains=2019)&Q(patient_status__contains="Rest In Peace")).count()
+
             context = {
             'patient_number': patient_number,
             'patient_total_act': patient_act,
             'patient_total_rip': patient_rip,
             'patient_total_mia': patient_mia,
-            'patient_yearinput_mia': patient_mia,
-            'patient_yearinput_act': patient_act,
-            'patient_yearinput_rip': patient_rip,
+            'patient_year2015_mia': patient_year2015_mia,
+            'patient_year2015_act': patient_year2015_act,
+            'patient_year2015_rip': patient_year2015_rip,
+            'patient_year2016_mia': patient_year2016_mia,
+            'patient_year2016_act': patient_year2016_act,
+            'patient_year2016_rip': patient_year2016_rip,
+            'patient_year2017_mia': patient_year2017_mia,
+            'patient_year2017_act': patient_year2017_act,
+            'patient_year2017_rip': patient_year2017_rip,
+            'patient_year2018_mia': patient_year2018_mia,
+            'patient_year2018_act': patient_year2018_act,
+            'patient_year2018_rip': patient_year2018_rip,
+            'patient_year2019_mia': patient_year2019_mia,
+            'patient_year2019_act': patient_year2019_act,
+            'patient_year2019_rip': patient_year2019_rip,
             'currentyear': currentyear,
-    }
+            }
     else:
             # display current patient for each of the status
-            patient_yearinput_mia = Patient.objects.filter(Q(time_registered__contains=query)&Q(patient_status__contains="MIA")).count()
-            patient_yearinput_act = Patient.objects.filter(Q(time_registered__contains=query)&Q(patient_status__contains="ACT")).count()
-            patient_yearinput_rip = Patient.objects.filter(Q(time_registered__contains=query)&Q(patient_status__contains="RIP")).count()
+            patient_yearinput_mia = Patient.objects.filter(Q(time_registered__contains=query)&Q(patient_status__contains="Missing")).count()
+            patient_yearinput_act = Patient.objects.filter(Q(time_registered__contains=query)&Q(patient_status__contains="Active")).count()
+            patient_yearinput_rip = Patient.objects.filter(Q(time_registered__contains=query)&Q(patient_status__contains="Rest In Peace")).count()
             currentyear = query
             context = { 
             'patient_number': patient_number,

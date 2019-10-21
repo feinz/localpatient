@@ -11,7 +11,8 @@
   </ul>
 
     <!-- Chart-->
-  <div id="container"></div>
+  <div id="chart"></div>
+    <!--end of Chart-->
   
   <form method='GET' action='{% url "index" %}' id="graphform">
     <button type='submit' name='q' value='2019' class='waves-effect waves-light btn' id='b2019'>2019</button>
@@ -33,12 +34,14 @@
   <li><strong>Patient MIA:</strong> {{ patient_yearinput_mia }}</li>
   </ul>
 
-  <script src="https://code.highcharts.com/highcharts.src.js"></script>
+  {% comment %} <script src="https://code.highcharts.com/highcharts.src.js"></script> {% endcomment %}
   <script>
-    var patient_act = {{ patient_yearinput_act }};
-    var patient_rip = {{ patient_yearinput_rip }};
-    var patient_mia = {{ patient_yearinput_mia }};
-    Highcharts.chart('container', {
+    var currentyear = {{ currentyear }};
+    if (currentyear==2019){
+      var patient_act = {{ patient_yearinput_act }};
+      var patient_rip = {{ patient_yearinput_rip }};
+      var patient_mia = {{ patient_yearinput_mia }};
+      Highcharts.chart('chart', {
         chart: {
             type: 'column'
         },
@@ -46,26 +49,157 @@
             text: 'Patients Statistic For The Year: {{ currentyear }}'
         },
         xAxis: {
-            categories: ['Active', 'RIP', 'Missing In Action']
+            categories: ['Active', 'Rest In Peace', 'Missing']
+        },
+        series: [{
+            name: {{ currentyear }},
+            data: [patient_act, patient_rip, patient_mia]
+        }]
+      });
+    }
+  </script>
+
+  <script>
+    var currentyear = {{ currentyear }};
+    if (currentyear==2018){
+      var patient_act = {{ patient_yearinput_act }};
+      var patient_rip = {{ patient_yearinput_rip }};
+      var patient_mia = {{ patient_yearinput_mia }};
+      Highcharts.chart('chart', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Patients Statistic For The Year: {{ currentyear }}'
+        },
+        xAxis: {
+            categories: ['Active', 'Rest In Peace', 'Missing']
+        },
+        series: [{
+            name: {{ currentyear }},
+            data: [patient_act, patient_rip, patient_mia]
+        }]
+      });
+    }
+  </script>
+
+  <script>
+    var currentyear = {{ currentyear }};
+    if (currentyear==2017){
+      var patient_act = {{ patient_yearinput_act }};
+      var patient_rip = {{ patient_yearinput_rip }};
+      var patient_mia = {{ patient_yearinput_mia }};
+      Highcharts.chart('chart', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Patients Statistic For The Year: {{ currentyear }}'
+        },
+        xAxis: {
+            categories: ['Active', 'Rest In Peace', 'Missing']
+        },
+        series: [{
+            name: {{ currentyear }},
+            data: [patient_act, patient_rip, patient_mia]
+        }]
+      });
+    }
+  </script>
+
+  <script>
+    var currentyear = {{ currentyear }};
+    if (currentyear==2016){
+      var patient_act = {{ patient_yearinput_act }};
+      var patient_rip = {{ patient_yearinput_rip }};
+      var patient_mia = {{ patient_yearinput_mia }};
+      Highcharts.chart('chart', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Patients Statistic For The Year: {{ currentyear }}'
+        },
+        xAxis: {
+            categories: ['Active', 'Rest In Peace', 'Missing']
+        },
+        series: [{
+            name: {{ currentyear }},
+            data: [patient_act, patient_rip, patient_mia]
+        }]
+      });
+    }
+  </script>
+
+  <script>
+    var currentyear = {{ currentyear }};
+    if (currentyear==2015){
+      var patient_act = {{ patient_yearinput_act }};
+      var patient_rip = {{ patient_yearinput_rip }};
+      var patient_mia = {{ patient_yearinput_mia }};
+      Highcharts.chart('chart', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Patients Statistic For The Year: {{ currentyear }}'
+        },
+        xAxis: {
+            categories: ['Active', 'Rest In Peace', 'Missing']
+        },
+        series: [{
+            name: {{ currentyear }},
+            data: [patient_act, patient_rip, patient_mia]
+        }]
+      });
+    }
+  </script>
+
+  <script>
+    var currentyear = {{ currentyear }};
+    if (currentyear==0000){
+      var patient_year2015_mia = {{ patient_year2015_mia }};
+      var patient_year2015_act = {{ patient_year2015_act }};
+      var patient_year2015_rip = {{ patient_year2015_rip }};
+      var patient_year2016_mia = {{ patient_year2016_mia }};
+      var patient_year2016_act = {{ patient_year2016_act }};
+      var patient_year2016_rip = {{ patient_year2016_rip }};
+      var patient_year2017_mia = {{ patient_year2017_mia }};
+      var patient_year2017_act = {{ patient_year2017_act }};
+      var patient_year2017_rip = {{ patient_year2017_rip }};
+      var patient_year2018_mia = {{ patient_year2018_mia }};
+      var patient_year2018_act = {{ patient_year2018_act }};
+      var patient_year2018_rip = {{ patient_year2018_rip }};
+      var patient_year2019_mia = {{ patient_year2019_mia }};
+      var patient_year2019_act = {{ patient_year2019_act }};
+      var patient_year2019_rip = {{ patient_year2019_rip }};
+      Highcharts.chart('chart', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Patients Statistic For All Year'
+        },
+        xAxis: {
+            categories: ['Active', 'Rest In Peace', 'Missing']
         },
         series: [{
             name: '2015',
-            data: [patient_act, patient_rip, patient_mia]
+            data: [patient_year2015_act, patient_year2015_rip, patient_year2015_mia]
         }, {
             name: '2016',
-            data: [patient_act, patient_rip, patient_mia]
+            data: [patient_year2016_act, patient_year2016_rip, patient_year2016_mia]
         }, {
             name: '2017',
-            data: [patient_act, patient_rip, patient_mia]
+            data: [patient_year2017_act, patient_year2017_rip, patient_year2017_mia]
         }, {
             name: '2018',
-            data: [patient_act, patient_rip, patient_mia]
+            data: [patient_year2018_act, patient_year2018_rip, patient_year2018_mia]
         }, {
             name: '2019',
-            data: [patient_act, patient_rip, patient_mia]
-        }
-        
-        ]
-    });
+            data: [patient_year2019_act, patient_year2019_rip, patient_year2019_mia]
+        }]
+      });
+    }
   </script>
 {% endblock %}
