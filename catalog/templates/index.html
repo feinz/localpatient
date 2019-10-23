@@ -2,13 +2,25 @@
 
 {% block content %}
   <h5>Welcome to Local Patient DB</h5>
-  <p>The database has the following record counts:</p>
-  <ul>
-    <li><strong>Patient:</strong> {{ patient_number }}</li>
-    <li><strong>Patient Active:</strong> {{ patient_total_act }}</li>
-    <li><strong>Patient RIP:</strong> {{ patient_total_rip }}</li>
-    <li><strong>Patient MIA:</strong> {{ patient_total_mia }}</li>
-  </ul>
+  {% comment %} <p></p> {% endcomment %}
+  <table>
+    <tr>
+      <th>
+          Database Summary:</br>
+          <strong>Total Patient:</strong> {{ patient_number }}</br>
+          <strong>Patient Active:</strong> {{ patient_total_act }}</br>
+          <strong>Patient RIP:</strong> {{ patient_total_rip }}</br>
+          <strong>Patient MIA:</strong> {{ patient_total_mia }}</br>
+      </th>
+      <th>
+        <strong>For The Year:</strong> {{ currentyear }}</br>
+        <strong>Total Patient:</strong> {{ patient_total_year }}</br>
+        <strong>Patient Active:</strong> {{ patient_yearinput_act }}</br>
+        <strong>Patient RIP:</strong> {{ patient_yearinput_rip }}</br>
+        <strong>Patient MIA:</strong> {{ patient_yearinput_mia }}</br>
+      </th>
+    </tr>
+    </table>
 
     <!-- Chart-->
   <div id="chart"></div>
@@ -22,25 +34,57 @@
     <button type='submit' name='q' value='2015' class='waves-effect waves-light btn' id='b2015'>2015</button>
     <button type='submit' name='q' value='' class='waves-effect waves-light btn' id='b2019'>View All</button>
   </form>
+  <!--will not used maybe
   <form method='GET' action='{% url "index" %}' id="graphform">
     <input pattern="[0-9]*" inputmode="numeric" type='number' name='q' placeholder="Or Enter Year" value='{{ request.GET.q }}' id='entry'>
     <button type='submit' value='Filter Year' class='waves-effect waves-light btn' id='sub1'>Go<i class="material-icons right">send</i></button>
   </form>
+  -->
   </br>
-  <ul>
-  <li><strong>For The Year:</strong> {{ currentyear }}</li>
-  <li><strong>Patient Active:</strong> {{ patient_yearinput_act }}</li>
-  <li><strong>Patient RIP:</strong> {{ patient_yearinput_rip }}</li>
-  <li><strong>Patient MIA:</strong> {{ patient_yearinput_mia }}</li>
-  </ul>
 
   {% comment %} <script src="https://code.highcharts.com/highcharts.src.js"></script> {% endcomment %}
   <script>
     var currentyear = {{ currentyear }};
-    if (currentyear==2019){
+    if (currentyear==2015||currentyear==2016||currentyear==2017||currentyear==2018||currentyear==2019){
       var patient_act = {{ patient_yearinput_act }};
       var patient_rip = {{ patient_yearinput_rip }};
       var patient_mia = {{ patient_yearinput_mia }};
+      var patient_year_act_01 = {{ patient_year_act_01 }};
+      var patient_year_act_02 = {{ patient_year_act_02 }};
+      var patient_year_act_03 = {{ patient_year_act_03 }};
+      var patient_year_act_04 = {{ patient_year_act_04 }};
+      var patient_year_act_05 = {{ patient_year_act_05 }};
+      var patient_year_act_06 = {{ patient_year_act_06 }};
+      var patient_year_act_07 = {{ patient_year_act_07 }};
+      var patient_year_act_08 = {{ patient_year_act_08 }};
+      var patient_year_act_09 = {{ patient_year_act_09 }};
+      var patient_year_act_10 = {{ patient_year_act_10 }};
+      var patient_year_act_11 = {{ patient_year_act_11 }};
+      var patient_year_act_12 = {{ patient_year_act_12 }};
+      var patient_year_rip_01 = {{ patient_year_rip_01 }};
+      var patient_year_rip_02 = {{ patient_year_rip_02 }};
+      var patient_year_rip_03 = {{ patient_year_rip_03 }};
+      var patient_year_rip_04 = {{ patient_year_rip_04 }};
+      var patient_year_rip_05 = {{ patient_year_rip_05 }};
+      var patient_year_rip_06 = {{ patient_year_rip_06 }};
+      var patient_year_rip_07 = {{ patient_year_rip_07 }};
+      var patient_year_rip_08 = {{ patient_year_rip_08 }};
+      var patient_year_rip_09 = {{ patient_year_rip_09 }};
+      var patient_year_rip_10 = {{ patient_year_rip_10 }};
+      var patient_year_rip_11 = {{ patient_year_rip_11 }};
+      var patient_year_rip_12 = {{ patient_year_rip_12 }};
+      var patient_year_mia_01 = {{ patient_year_mia_01 }};
+      var patient_year_mia_02 = {{ patient_year_mia_02 }};
+      var patient_year_mia_03 = {{ patient_year_mia_03 }};
+      var patient_year_mia_04 = {{ patient_year_mia_04 }};
+      var patient_year_mia_05 = {{ patient_year_mia_05 }};
+      var patient_year_mia_06 = {{ patient_year_mia_06 }};
+      var patient_year_mia_07 = {{ patient_year_mia_07 }};
+      var patient_year_mia_08 = {{ patient_year_mia_08 }};
+      var patient_year_mia_09 = {{ patient_year_mia_09 }};
+      var patient_year_mia_10 = {{ patient_year_mia_10 }};
+      var patient_year_mia_11 = {{ patient_year_mia_11 }};
+      var patient_year_mia_12 = {{ patient_year_mia_12 }};
       Highcharts.chart('chart', {
         chart: {
             type: 'column'
@@ -52,105 +96,54 @@
             categories: ['Active', 'Rest In Peace', 'Missing']
         },
         series: [{
-            name: {{ currentyear }},
-            data: [patient_act, patient_rip, patient_mia]
-        }]
-      });
-    }
-  </script>
-
-  <script>
-    var currentyear = {{ currentyear }};
-    if (currentyear==2018){
-      var patient_act = {{ patient_yearinput_act }};
-      var patient_rip = {{ patient_yearinput_rip }};
-      var patient_mia = {{ patient_yearinput_mia }};
-      Highcharts.chart('chart', {
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Patients Statistic For The Year: {{ currentyear }}'
-        },
-        xAxis: {
-            categories: ['Active', 'Rest In Peace', 'Missing']
-        },
-        series: [{
-            name: {{ currentyear }},
-            data: [patient_act, patient_rip, patient_mia]
-        }]
-      });
-    }
-  </script>
-
-  <script>
-    var currentyear = {{ currentyear }};
-    if (currentyear==2017){
-      var patient_act = {{ patient_yearinput_act }};
-      var patient_rip = {{ patient_yearinput_rip }};
-      var patient_mia = {{ patient_yearinput_mia }};
-      Highcharts.chart('chart', {
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Patients Statistic For The Year: {{ currentyear }}'
-        },
-        xAxis: {
-            categories: ['Active', 'Rest In Peace', 'Missing']
-        },
-        series: [{
-            name: {{ currentyear }},
-            data: [patient_act, patient_rip, patient_mia]
-        }]
-      });
-    }
-  </script>
-
-  <script>
-    var currentyear = {{ currentyear }};
-    if (currentyear==2016){
-      var patient_act = {{ patient_yearinput_act }};
-      var patient_rip = {{ patient_yearinput_rip }};
-      var patient_mia = {{ patient_yearinput_mia }};
-      Highcharts.chart('chart', {
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Patients Statistic For The Year: {{ currentyear }}'
-        },
-        xAxis: {
-            categories: ['Active', 'Rest In Peace', 'Missing']
-        },
-        series: [{
-            name: {{ currentyear }},
-            data: [patient_act, patient_rip, patient_mia]
-        }]
-      });
-    }
-  </script>
-
-  <script>
-    var currentyear = {{ currentyear }};
-    if (currentyear==2015){
-      var patient_act = {{ patient_yearinput_act }};
-      var patient_rip = {{ patient_yearinput_rip }};
-      var patient_mia = {{ patient_yearinput_mia }};
-      Highcharts.chart('chart', {
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Patients Statistic For The Year: {{ currentyear }}'
-        },
-        xAxis: {
-            categories: ['Active', 'Rest In Peace', 'Missing']
-        },
-        series: [{
-            name: {{ currentyear }},
-            data: [patient_act, patient_rip, patient_mia]
-        }]
+            name: 'Jan',
+            data: [patient_year_act_01, patient_year_rip_01, patient_year_mia_01],
+            color: '#ff8a80'
+            },{
+            name: 'Feb',
+            data: [patient_year_act_02, patient_year_rip_02, patient_year_mia_02],
+            color: '#ff80ab'
+            },{
+            name: 'Mar',
+            data: [patient_year_act_03, patient_year_rip_03, patient_year_mia_03],
+            color: '#ea80fc'
+            },{
+            name: 'Apr',
+            data: [patient_year_act_04, patient_year_rip_04, patient_year_mia_04],
+            color: '#b388ff'
+            },{
+            name: 'May',
+            data: [patient_year_act_05, patient_year_rip_05, patient_year_mia_05],
+            color: '#8c9eff'
+            },{
+            name: 'Jun',
+            data: [patient_year_act_06, patient_year_rip_06, patient_year_mia_06],
+            color: '#82b1ff'
+            },{
+            name: 'Jul',
+            data: [patient_year_act_07, patient_year_rip_07, patient_year_mia_07],
+            color: '#80d8ff'
+            },{
+            name: 'Aug',
+            data: [patient_year_act_08, patient_year_rip_08, patient_year_mia_08],
+            color: '#84ffff'
+            },{
+            name: 'Sep',
+            data: [patient_year_act_09, patient_year_rip_09, patient_year_mia_09],
+            color: '#ccff90'
+            },{
+            name: 'Oct',
+            data: [patient_year_act_10, patient_year_rip_10, patient_year_mia_10],
+            color: '#ffe57f'
+            },{
+            name: 'Nov',
+            data: [patient_year_act_11, patient_year_rip_11, patient_year_mia_11],
+            color: '#ffd180'
+            },{
+            name: 'Dec',
+            data: [patient_year_act_12, patient_year_rip_12, patient_year_mia_12],
+            color: '#ff9e80'
+            }]
       });
     }
   </script>
