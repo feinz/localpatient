@@ -36,7 +36,8 @@
   {% comment %} <script src="{% static 'js/dataTables.bootstrap4.min.js' %}"></script> {% endcomment %}
 
   <style>
-  a:hover{text-decoration: none;}
+    {% comment %} a:hover{text-decoration: none;} {% endcomment %}
+    
   </style>
 </head>
 <body>
@@ -80,7 +81,7 @@
   <!--content block-->
 {% block content %}{% endblock %}
   <!--pagination under the content if available-->
-{% if is_paginated %}
+{% comment %} {% if is_paginated %}
   <ul class="pagination">
   {% if page_obj.has_previous %}
     <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;previous&nbsp; </a></li>
@@ -100,7 +101,7 @@
     <li class="disabled"><span>&raquo;</span></li>
   {% endif %}
   </ul>
-{% endif %}
+{% endif %} {% endcomment %}
   <!--end of pagination-->
 </div>
 
