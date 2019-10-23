@@ -4,22 +4,18 @@
   {% block title %}<title>Local Patient</title>{% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1.0">
-  {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> {% endcomment %}
-  <!-- Add additional CSS in static file -->
+  <!-- Add additional CSS in static folder -->
   {% load static %}
   
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-<<<<<<< HEAD
   {% comment %} <link href="{% static 'css/bootstrap.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/> {% endcomment %}
   {% comment %} <link href="{% static 'css/jquery.dataTables.min.css' %}" type="text/css" rel="stylesheet"/> {% endcomment %}
-=======
->>>>>>> parent of 13288a6... added DataTable for patient list table
   {% comment %} <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/> {% endcomment %}
 
   <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> {% endcomment %}
   {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script> {% endcomment %}
 
   <!-- XDSoft DateTimePicker -->
@@ -32,9 +28,12 @@
 
 
   <!-- Custom scripts for all pages-->
+  <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
   <script src="{% static 'js/materialize.js' %}"></script>
   <script src="{% static 'js/init.js' %}"></script>
   <script src="{% static 'js/highcharts.js' %}"></script>
+  <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+  {% comment %} <script src="{% static 'js/dataTables.bootstrap4.min.js' %}"></script> {% endcomment %}
 
   <style>
     {% comment %} a:hover{text-decoration: none;} {% endcomment %}
@@ -107,6 +106,10 @@
 </div>
 
 <script>
+  $(document).ready(function() {
+    $('#patientlist').DataTable();
+  } );
+
   $(function () {
     $("#id_time_registered").datepicker({
       format:'mm/dd/yyyy',
@@ -122,6 +125,7 @@
   $('.sidenav').sidenav();
   });
 
+  {% comment %} matierialize selection javascript initialization {% endcomment %}
   $(document).ready(function() {
     $('select').formSelect();
   });
