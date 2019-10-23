@@ -10,22 +10,7 @@
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-  {% comment %} <link href="{% static 'css/bootstrap.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/> {% endcomment %}
-  {% comment %} <link href="{% static 'css/jquery.dataTables.min.css' %}" type="text/css" rel="stylesheet"/> {% endcomment %}
-  {% comment %} <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/> {% endcomment %}
-
-  <!-- jQuery -->
-  {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> {% endcomment %}
-  {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script> {% endcomment %}
-
-  <!-- XDSoft DateTimePicker -->
-  {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" /> {% endcomment %}
-  {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script> {% endcomment %}
-
-   <!-- fengyuan datePicker -->
-  {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.css" /> {% endcomment %}
-  {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.js"></script> {% endcomment %}
-
+  <link href="{% static 'css/dataTables.material.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 
   <!-- Custom scripts for all pages-->
   <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
@@ -33,12 +18,7 @@
   <script src="{% static 'js/init.js' %}"></script>
   <script src="{% static 'js/highcharts.js' %}"></script>
   <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
-  {% comment %} <script src="{% static 'js/dataTables.bootstrap4.min.js' %}"></script> {% endcomment %}
 
-  <style>
-    {% comment %} a:hover{text-decoration: none;} {% endcomment %}
-    
-  </style>
 </head>
 <body>
 {% block sidebar %}
@@ -77,9 +57,10 @@
 </ul>
 {% endblock %}
 
-<div class="container" >
+<div class="container">
   <!--content block-->
 {% block content %}{% endblock %}
+
   <!--pagination under the content if available-->
 {% comment %} {% if is_paginated %}
   <ul class="pagination">
@@ -106,10 +87,12 @@
 </div>
 
 <script>
+{% comment %} DataTable initialization {% endcomment %}
   $(document).ready(function() {
     $('#patientlist').DataTable();
   } );
 
+{% comment %} Materialize datepicker initialization {% endcomment %}
   $(function () {
     $("#id_time_registered").datepicker({
       format:'mm/dd/yyyy',
@@ -119,13 +102,14 @@
     });
   });
 
+{% comment %} Materialize slide nav initialization (for mobile screen) {% endcomment %}
   var elem = document.querySelector('.sidenav');
   var instance = new M.Sidenav(elem);
   $(document).ready(function(){
   $('.sidenav').sidenav();
   });
 
-  {% comment %} matierialize selection javascript initialization {% endcomment %}
+  {% comment %} materialize selection javascript initialization {% endcomment %}
   $(document).ready(function() {
     $('select').formSelect();
   });

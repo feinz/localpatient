@@ -3,46 +3,6 @@
 {% block content %}
 <h4>Patient List</h4>
 
-{% comment %} <table class="highlight">
-<tr>
-<h5>Search: </h5>
-<form method='GET' action='{% url "patient_list" %}'>
-    <input type='text' name='q' placeholder="Search Anything" value='{{ request.GET.q }}' id='entry'>
-    <button type='submit' class='btn waves-effect waves-light'>Search <i class="material-icons right">send</i></button>
-</form>
-<button type='button' value='Cancel' class='waves-effect waves-light btn' onclick="location.href='{% url 'patient_list' %}'">Reset</button>
-&nbspor&nbsp
-<button type='button' value='Add Patient' class='waves-effect waves-light btn' onclick="window.location.href='{%url 'patient_create' %}'">Add Patient</button>
-<p></p>
-</tr>
-</table> {% endcomment %}
-
-<!--pagination for the top of this page-->
-{% comment %} {% if is_paginated %}
-  <ul class="pagination">
-    {% if page_obj.has_previous %}
-      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;previous&nbsp; </a></li>
-    {% else %}
-      <li class="disabled"><span>&laquo;</span></li>
-    {% endif %}
-    {% for i in paginator.page_range %}
-      {% if page_obj.number == i %}
-        <li class="active"><span><h5><b>{{ i }}</b></h5> <span class="sr-only">(current)</span></span></li>
-      {% else %}
-        <li><a href="?page={{ i }}">&nbsp;{{ i }}</a>&nbsp;</li>
-      {% endif %}
-    {% endfor %}
-    {% if page_obj.has_next %}
-      <li><a href="?page={{ page_obj.next_page_number }}">&nbsp;next&raquo;</a></li>
-    {% else %}
-      <li class="disabled"><span>&raquo;</span></li>
-    {% endif %}
-  </ul>
-{% endif %} {% endcomment %}
-<!--end of pagination-->
-
-{% comment %} <p id="urlpath"></p> {% endcomment %}
-
 {% if patient_list %}
 <table id="patientlist" class="striped" style="width:100%">
 <thead>
@@ -79,9 +39,8 @@
   </tr>
 </tfoot>
 </table>
-</br>
 {% else %}
 <p>There is no patient registered.</p>
 {% endif %}
-
+<div style="padding-bottom: 70px;"></div>
 {% endblock %}
