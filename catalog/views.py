@@ -68,11 +68,13 @@ def index(request):
             'currentyear': currentyear,
             }
     else:
+            patient_yearinput_mia = Patient.objects.filter(Q(time_registered__contains=query)&Q(patient_status__contains="Missing")).count()
             # display current patient for each of the status
             patient_yearinput_mia = Patient.objects.filter(Q(time_registered__contains=query)&Q(patient_status__contains="Missing")).count()
             patient_yearinput_act = Patient.objects.filter(Q(time_registered__contains=query)&Q(patient_status__contains="Active")).count()
             patient_yearinput_rip = Patient.objects.filter(Q(time_registered__contains=query)&Q(patient_status__contains="Rest In Peace")).count()
             currentyear = query
+
             context = { 
             'patient_number': patient_number,
             'patient_total_act': patient_act,
