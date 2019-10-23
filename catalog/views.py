@@ -174,7 +174,7 @@ def index(request):
     
 class PatientListView(LoginRequiredMixin, generic.ListView):
         model = Patient
-        # paginate_by = 10
+        paginate_by = 10
         # search function
         def get_queryset(self):
             query = self.request.GET.get('q')

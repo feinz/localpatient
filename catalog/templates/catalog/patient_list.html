@@ -3,7 +3,7 @@
 {% block content %}
 <h4>Patient List</h4>
 
-{% comment %} <table class="highlight">
+<table class="highlight">
 <tr>
 <h5>Search: </h5>
 <form method='GET' action='{% url "patient_list" %}'>
@@ -15,10 +15,10 @@
 <button type='button' value='Add Patient' class='waves-effect waves-light btn' onclick="window.location.href='{%url 'patient_create' %}'">Add Patient</button>
 <p></p>
 </tr>
-</table> {% endcomment %}
+</table>
 
 <!--pagination for the top of this page-->
-{% comment %} {% if is_paginated %}
+{% if is_paginated %}
   <ul class="pagination">
     {% if page_obj.has_previous %}
       <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;previous&nbsp; </a></li>
@@ -38,36 +38,54 @@
       <li class="disabled"><span>&raquo;</span></li>
     {% endif %}
   </ul>
-{% endif %} {% endcomment %}
+{% endif %}
 <!--end of pagination-->
 
 {% comment %} <p id="urlpath"></p> {% endcomment %}
 
 {% if patient_list %}
+<<<<<<< HEAD
 <table id="patientlist" class="striped" style="width:100%">
+=======
+<table class="highlight">
+>>>>>>> parent of 13288a6... added DataTable for patient list table
 <thead>
   <tr>
     <th>Name</th>
     <th>I.C Number</th>
     <th>Status</th>
+    {% comment %} <th>Address</th> {% endcomment %}
+    {% comment %} <th>Description</th> {% endcomment %}
     <th>Transfer</th>
+    {% comment %} <th>Patient Number</th> {% endcomment %}
     <th>Options</th>
   </tr>
+<<<<<<< HEAD
 </thead>
 <tbody>
+=======
+  </thead>
+>>>>>>> parent of 13288a6... added DataTable for patient list table
   {% for patient in patient_list %}
+  <tbody>
   <tr>
+    {% comment %} <td><a href="{{ patient.get_absolute_url }}">{{patient.name}}</a></td> {% endcomment %}
     <td>{{patient.name}}</td>
     <td>{{patient.identity_card_number}}</td>
     <td>{{patient.patient_status}}</td>
+    {% comment %} <td>{{patient.address}}</td>
+    <td>{{patient.description}}</td> {% endcomment %}
     <td>{{patient.transfer}}</td>
+    {% comment %} <td>{{patient.patient_number}}</td> {% endcomment %}
     <td>
       <button style="width: 100%;" class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}'" type="button">View</button></br>
       <button style="width: 100%;" class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/update/'" type="button">Update</button></br>
       <button style="width: 100%;" class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/delete/'" type="button">Delete</button>
     </td>
   </tr>
+  </tbody>
   {% endfor %}
+<<<<<<< HEAD
 </tbody>
 <tfoot>
   <tr>
@@ -78,8 +96,10 @@
       <th>Options</th>
   </tr>
 </tfoot>
+=======
+
+>>>>>>> parent of 13288a6... added DataTable for patient list table
 </table>
-</br>
 {% else %}
 <p>There is no patient registered.</p>
 {% endif %}

@@ -37,15 +37,15 @@
     <button type='submit' name='q' value='' class='waves-effect waves-light btn' id='b2019'>View All</button>
     </div>
   </form>
-  </br>
   <!--will not used maybe
   <form method='GET' action='{% url "index" %}' id="graphform">
     <input pattern="[0-9]*" inputmode="numeric" type='number' name='q' placeholder="Or Enter Year" value='{{ request.GET.q }}' id='entry'>
     <button type='submit' value='Filter Year' class='waves-effect waves-light btn' id='sub1'>Go<i class="material-icons right">send</i></button>
   </form>
   -->
+  </br>
 
-  {% comment %} for specific year patient {% endcomment %}
+  {% comment %} <script src="https://code.highcharts.com/highcharts.src.js"></script> {% endcomment %}
   <script>
     var currentyear = {{ currentyear }};
     if (currentyear==2015||currentyear==2016||currentyear==2017||currentyear==2018||currentyear==2019){
@@ -151,7 +151,6 @@
     }
   </script>
 
-  {% comment %} for view all patient {% endcomment %}
   <script>
     var currentyear = {{ currentyear }};
     if (currentyear==0000){
