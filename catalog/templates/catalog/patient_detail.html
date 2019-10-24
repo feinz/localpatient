@@ -1,34 +1,31 @@
 {% extends "base_generic.html" %}
-
 {% block content %}
 {% comment %} patient is from patient_list.html {% endcomment %}
+<div style="margin-left:20px;margin-top:20px">  
+  <h5>{{ patient.name }} Personal Information</h5>
 
-  <div style="margin-left:20px;margin-top:20px">  
-    <h5>{{ patient.name }} Personal Information</h5>
+  IC: {{ patient.identity_card_number }}</br>
+  Address: {{ patient.address }}
+</div>
 
-    IC: {{ patient.identity_card_number }}</br>
-    Address: {{ patient.address }}
-  </div>
-  
-  <div style="margin-left:20px;margin-top:20px">
-    <h5>Hospital Information</h5>
-    Description: {{ patient.description }}</br>
-    Transfer: {{ patient.transfer }}</br>
-    Patient Number: {{ patient.patient_number }}</br>
-    Patient Status: {{ patient.patient_status }}</br>
-    Time Registered As Patient: {{ patient.time_registered|date:'d-M-Y' }}</br>
-  </div>
-  <div style="margin-left:20px;margin-top:20px">
-    <h5>System Information</h5>
-    Date Created: {{ patient.time_created|date:'d-M-Y' }}</br>
-    Date Modified: {{ patient.time_modified|date:'d-M-Y' }}</br></br>
-    <button class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/update/'" type="button">Update</button>
-    &nbsp&nbsp&nbsp
-    <button class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/delete/'" type="button">Delete</button>
-    &nbsp&nbsp&nbsp
-    <button type='button' value='Cancel' class='waves-effect waves-light btn' onclick="location.href='{% url 'patient_list' %}'">Patient List</button>
-    </br>
-  </div>
-  </div>
-
+<div style="margin-left:20px;margin-top:20px">
+  <h5>Hospital Information</h5>
+  Description: {{ patient.description }}</br>
+  Transfer: {{ patient.transfer }}</br>
+  Patient Number: {{ patient.patient_number }}</br>
+  Patient Status: {{ patient.patient_status }}</br>
+  Time Registered As Patient: {{ patient.time_registered|date:'d-M-Y' }}</br>
+</div>
+<div style="margin-left:20px;margin-top:20px">
+  <h5>System Information</h5>
+  Date Created: {{ patient.time_created|date:'d-M-Y' }}</br>
+  Date Modified: {{ patient.time_modified|date:'d-M-Y' }}</br></br>
+  <button class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/update/'" type="button">Update</button>
+  &nbsp&nbsp&nbsp
+  <button class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/delete/'" type="button">Delete</button>
+  &nbsp&nbsp&nbsp
+  <button type='button' value='Cancel' class='waves-effect waves-light btn' onclick="location.href='{% url 'patient_list' %}'">Patient List</button>
+  </br>
+</div>
+</div>
 {% endblock %}

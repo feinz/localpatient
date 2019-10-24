@@ -12,5 +12,5 @@ urlpatterns = [
     path('patient_detail/<int:pk>/delete/', views.PatientDelete.as_view(), name='patient_detail_delete'),
 
     # url to static html template
-    path('patient_deleted_success/', TemplateView.as_view(template_name="patient_deleted_success.html"), name='patient_deleted_success'),
+    # path('patient_deleted_success/', TemplateView.as_view(template_name="patient_deleted_success.html"), name='patient_deleted_success'),
 ]

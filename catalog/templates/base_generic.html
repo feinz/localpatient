@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="{% static 'css/dataTables.material.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-  {% comment %} <link href="{% static 'css/jquery-ui.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/> {% endcomment %}
 
   <!-- Custom scripts for all pages-->
   <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
@@ -25,7 +24,7 @@
   .resp-container {
     position: relative;
     overflow: hidden;
-    padding-top: 56.25%;
+    padding-top: 55%;
   }
   .resp-iframe {
     position: absolute;
@@ -75,32 +74,8 @@
 {% endblock %}
 
 <div class="container">
-  <!--content block-->
+<!--content block-->
 {% block content %}{% endblock %}
-
-  <!--pagination under the content if available-->
-{% comment %} {% if is_paginated %}
-  <ul class="pagination">
-  {% if page_obj.has_previous %}
-    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;previous&nbsp; </a></li>
-    {% else %}
-    <li class="disabled"><span>&laquo;</span></li>
-  {% endif %}
-  {% for i in paginator.page_range %}
-    {% if page_obj.number == i %}
-    <li class="active"><span><h5><b>{{ i }}</b></h5> <span class="sr-only">(current)</span></span></li>
-    {% else %}
-    <li><a href="?page={{ i }}">&nbsp;{{ i }}</a>&nbsp;</li>
-    {% endif %}
-  {% endfor %}
-  {% if page_obj.has_next %}
-    <li><a href="?page={{ page_obj.next_page_number }}">&nbsp;next&raquo;</a></li>
-    {% else %}
-    <li class="disabled"><span>&raquo;</span></li>
-  {% endif %}
-  </ul>
-{% endif %} {% endcomment %}
-  <!--end of pagination-->
 </div>
 
 <script>
@@ -108,7 +83,6 @@
   $(document).ready(function() {
     $('#patientlist').DataTable();
   } );
-
 {% comment %} Materialize datepicker initialization {% endcomment %}
   $(function () {
     $("#id_time_registered").datepicker({
@@ -118,25 +92,16 @@
       changeYear: true,
     });
   });
-
 {% comment %} Materialize slide nav initialization (for mobile screen) {% endcomment %}
   var elem = document.querySelector('.sidenav');
   var instance = new M.Sidenav(elem);
   $(document).ready(function(){
   $('.sidenav').sidenav();
   });
-
-  {% comment %} materialize selection javascript initialization {% endcomment %}
+{% comment %} materialize selection javascript initialization {% endcomment %}
   $(document).ready(function() {
     $('select').formSelect();
   });
-
-  {% comment %} initialize modal {% endcomment %}
-  $(document).ready(function(){
-    $('.modal').modal();
-  })
-
 </script>
-
 </body>
 </html>

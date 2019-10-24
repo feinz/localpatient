@@ -1,29 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-{% block title %}<title>Local Patient</title>{% endblock %}
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1.0">
-<!-- Add additional CSS in static folder -->
-{% load static %}
-<!-- CSS  -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-<!--jquery-->
-<script src="{% static 'js/jquery-3.3.1.js' %}"></script>
-</head>
+{% extends "base_generic.html" %}
+{% block content %}
 
-<body>
+<h4>Delete Patient</h4>
 
-<h3>Delete Patient</h3>
-
-<p>Are you sure you want to delete the patient: {{ patient.name }}?</p>
+<p><h6>Are you sure you want to delete the patient: {{ patient.name }}?</h6></p>
 
 <form action="" method="POST">
   {% csrf_token %}
   <button class="waves-effect waves-light btn" type="submit" value="Yes, delete.">Yes, delete.</button>
-  {% comment %} &nbsp<button type='button' value='Cancel' class='waves-effect waves-light btn' onclick="history.back()">Cancel</button> {% endcomment %}
+  &nbsp<button type='button' value='Cancel' class='waves-effect waves-light btn' onclick="history.back()">Cancel</button>
 </form>
-
-</body>
-</html>
+{% endblock %}
