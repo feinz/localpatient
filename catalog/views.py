@@ -200,4 +200,4 @@ class PatientUpdate(LoginRequiredMixin, UpdateView):
 
 class PatientDelete(LoginRequiredMixin, DeleteView):
     model = Patient
-    success_url = reverse_lazy('patient_list') #where to redirect after deleted
+    success_url = reverse_lazy('patient_deleted_success') #where to redirect after deleted

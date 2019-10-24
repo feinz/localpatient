@@ -34,7 +34,7 @@
         <div class="resp-container">
           <iframe class="resp-iframe" src="{{ patient.get_absolute_url }}/delete/"></iframe>
         </div>
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        <a href="{% url 'patient_list' %}" class="modal-close waves-effect waves-green btn-flat">Close</a>
       </div>
     </td>
   </tr>
@@ -42,11 +42,11 @@
 </tbody>
 <tfoot>
   <tr>
-      <th>Name</th>
-      <th>I.C Number</th>
-      <th>Status</th>
-      <th>Transfer</th>
-      <th>Options</th>
+    <th>Name</th>
+    <th>I.C Number</th>
+    <th>Status</th>
+    <th>Transfer</th>
+    <th>Options</th>
   </tr>
 </tfoot>
 </table>
