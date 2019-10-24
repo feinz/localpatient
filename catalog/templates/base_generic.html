@@ -39,22 +39,22 @@
 <body>
 {% block sidebar %}
 <nav class="red darken-4" role="navigation">
-<div class="nav-wrapper container">
-<a href="{% url 'index' %}"><img style="margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);" id="logo-container" href="#" class="center brand-logo" src="{% static 'logo/logo.png' %}"></a>
-<a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
-  <ul class="left hide-on-med-and-down">
-    <li><a href="{% url 'index' %}"><span class="white-text">Home</span></a></li>
-    <li><a href="{% url 'patient_list' %}"><span class="white-text">Patient List</span></a></li>
-  </ul>
-  <ul class="right hide-on-med-and-down">
-    {% if user.is_authenticated %}
-      <li>User: {{ user.get_username }}</li>
-      <li><a href="{% url 'logout'%}?next={{request.path}}"><span class="white-text">Logout</span></a></li>   
-    {% else %}
-      <li><a href="{% url 'login'%}?next={{request.path}}"><span class="white-text">Login</span></a></li>   
-    {% endif %} 
-  </ul>
-</div>
+  <div class="nav-wrapper container">
+    <a href="{% url 'index' %}"><img style="margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);" id="logo-container" href="#" class="center brand-logo" src="{% static 'logo/logo.png' %}"></a>
+    <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
+    <ul class="left hide-on-med-and-down">
+      <li><a href="{% url 'index' %}"><span class="white-text">Home</span></a></li>
+      <li><a href="{% url 'patient_list' %}"><span class="white-text">Patient List</span></a></li>
+    </ul>
+    <ul class="right hide-on-med-and-down">
+      {% if user.is_authenticated %}
+        <li>User: {{ user.get_username }}</li>
+        <li><a href="{% url 'logout'%}?next={{request.path}}"><span class="white-text">Logout</span></a></li>   
+      {% else %}
+        <li><a href="{% url 'login'%}?next={{request.path}}"><span class="white-text">Login</span></a></li>   
+      {% endif %} 
+    </ul>
+  </div>
 </nav>
 <ul class="sidenav" id="mobile">
     <li><a href="{% url 'index' %}">Home<i class="small material-icons">home</i></a></li>
