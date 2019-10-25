@@ -89,13 +89,34 @@
       var patient_year_mia_12 = {{ patient_year_mia_12 }};
       Highcharts.chart('chart', {
         chart: {
-            type: 'column'
+            type: 'column',
+            backgroundColor: '#121212'
         },
         title: {
-            text: 'Patients Statistic For The Year: {{ currentyear }}'
+            text: 'Patients Statistic For The Year: {{ currentyear }}',
+            style: {
+              color: '#FFFFFF'
+            }
         },
         xAxis: {
-            categories: ['Active', 'Rest In Peace', 'Missing']
+            categories: ['Active', 'Rest In Peace', 'Missing'],
+          labels: {
+              style: {
+                  color: '#FFFFFF'
+                  }
+            }
+        },
+        yAxis: {
+          title: {
+              style: {
+                  color: '#FFFFFF'
+                  }
+            },
+          labels: {
+              style: {
+                  color: '#FFFFFF'
+                  }
+            }
         },
         series: [{
             name: 'Jan',
@@ -145,7 +166,13 @@
             name: 'Dec',
             data: [patient_year_act_12, patient_year_rip_12, patient_year_mia_12],
             color: '#ff9e80'
-            }]
+            }],
+        legend: {
+          itemStyle: {
+            color: '#FFFFFF',
+            fontWeight: 'normal'
+          }
+        }
       });
     }
   </script>
@@ -171,13 +198,34 @@
       var patient_year2019_rip = {{ patient_year2019_rip }};
       Highcharts.chart('chart', {
         chart: {
-            type: 'column'
+            type: 'column',
+            backgroundColor: '#121212'
         },
         title: {
-            text: 'Patients Statistic For All Year'
+            text: 'Patients Statistic For All Year',
+            style: {
+              color: '#FFFFFF'
+            }
         },
         xAxis: {
-            categories: ['Active', 'Rest In Peace', 'Missing']
+            categories: ['Active', 'Rest In Peace', 'Missing'],
+        labels: {
+            style: {
+                color: '#FFFFFF'
+                }
+          }
+        },
+        yAxis: {
+          title: {
+              style: {
+                  color: '#FFFFFF'
+                  }
+            },
+          labels: {
+              style: {
+                  color: '#FFFFFF'
+                  }
+            }
         },
         series: [{
             name: '2015',
@@ -199,7 +247,13 @@
             name: '2019',
             data: [patient_year2019_act, patient_year2019_rip, patient_year2019_mia],
             color: '#bf360c'
-        }]
+        }],
+        legend: {
+          itemStyle: {
+            color: '#FFFFFF',
+            fontWeight: 'normal'
+          }
+        }
       });
     }
   </script>

@@ -4,7 +4,7 @@
 {% comment %} Materialize card {% endcomment %}
 <div class="row">
 <div class="col s12 m6">
-<div class="card blue-grey darken-1">
+<div class="card light-green">
 <div class="card-content white-text">
 <span class="card-title">{{ patient.name }}</span>
 
@@ -24,9 +24,9 @@
 
 </div>{% comment %} card content /div {% endcomment %}
 <div class="card-action">
-  <a href="{{ patient.get_absolute_url }}/update/">Update</a>
-  <a href="{{ patient.get_absolute_url }}/delete/">Delete</a>
-  <a href="{% url 'patient_list' %}">Back to List</a>
+  <a href="{{ patient.get_absolute_url }}/update/" style="color: white;">Update</a>
+  <a href="{{ patient.get_absolute_url }}/delete/" style="color: white;">Delete</a>
+  <a href="{% url 'patient_list' %}" style="color: white;">Back to List</a>
 </div>
 
 {% comment %} materialize card {% endcomment %}
