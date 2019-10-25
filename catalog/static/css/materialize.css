@@ -6217,9 +6217,9 @@ input[type=tel]:not(.browser-default):focus:not([readonly]),
 input[type=number]:not(.browser-default):focus:not([readonly]),
 input[type=search]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #26a69a;
-  -webkit-box-shadow: 0 1px 0 0 #26a69a;
-          box-shadow: 0 1px 0 0 #26a69a;
+  border-bottom: 1px solid #bdbdbd;
+  -webkit-box-shadow: 0 1px 0 0 #bdbdbd;
+          box-shadow: 0 1px 0 0 #bdbdbd;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -6235,7 +6235,7 @@ input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
 input[type=number]:not(.browser-default):focus:not([readonly]) + label,
 input[type=search]:not(.browser-default):focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: #26a69a;
+  color: #bdbdbd;
 }
 
 input:not([type]):focus.valid ~ label,
@@ -7182,7 +7182,7 @@ select {
 }
 
 .select-wrapper input.select-dropdown:focus {
-  border-bottom: 1px solid #26a69a;
+  border-bottom: 1px solid #bdbdbd;
 }
 
 .select-wrapper .caret {
@@ -8714,7 +8714,7 @@ input[type=range]::-ms-thumb {
   -webkit-flex: 1 auto;
       -ms-flex: 1 auto;
           flex: 1 auto;
-  background-color: #26a69a;
+  background-color: #424242;
   color: #fff;
   padding: 20px 22px;
   font-weight: 500;
@@ -8772,11 +8772,11 @@ input[type=range]::-ms-thumb {
 }
 
 .datepicker-table td.is-today {
-  color: #26a69a;
+  color: #2196f3;
 }
 
 .datepicker-table td.is-selected {
-  background-color: #26a69a;
+  background-color: #424242;
   color: #fff;
 }
 
@@ -8820,7 +8820,7 @@ input[type=range]::-ms-thumb {
 .datepicker-clear,
 .datepicker-today,
 .datepicker-done {
-  color: #26a69a;
+  color: #2196f3;
   padding: 0 1rem;
 }
 
