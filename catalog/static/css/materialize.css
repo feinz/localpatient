@@ -3014,6 +3014,8 @@ td, th {
   text-align: left;
   vertical-align: middle;
   border-radius: 2px;
+  /* newly added */
+  padding-left: 35px;
 }
 
 @media only screen and (max-width: 992px) {
