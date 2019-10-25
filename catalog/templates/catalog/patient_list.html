@@ -3,7 +3,7 @@
 <div style="text-align: center;"><h5>Patient List</h5></div>
 <div style="text-align: right;"><button type='button' value='Add Patient' class='waves-effect waves-light btn' onclick="window.location.href='{%url 'patient_create' %}'">Add Patient</button></div>
 {% if patient_list %}
-<table id="patientlist" style="width:100%">
+<table id="patientlist" class="highlight" style="width:100%">
 <thead>
   <tr style="background-color: #424242;">
     <th>Name</th>
@@ -16,7 +16,7 @@
 </thead>
 <tbody>
   {% for patient in patient_list %}
-  <tr style="background-color: #212121;">
+  <tr>
     <td>{{patient.name}}</td>
     <td>{{patient.identity_card_number}}</td>
     <td>{{patient.patient_status}}</td>

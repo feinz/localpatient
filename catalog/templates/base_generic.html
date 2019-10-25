@@ -19,9 +19,8 @@
   <script src="{% static 'js/highcharts.js' %}"></script>
   <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
   
-  {% comment %} .resp is for responsive card design {% endcomment %}
-  {% comment %} .btn to override stock material button color{% endcomment %}
   <style>
+  {% comment %} .resp is for responsive card design {% endcomment %}
   .resp-container {
     position: relative;
     overflow: hidden;
@@ -35,6 +34,7 @@
     height: 100%;
     border: 0;
   }
+  {% comment %} overriding stock material color {% endcomment %}
   .btn {
     background-color: #1976d2;
   }
