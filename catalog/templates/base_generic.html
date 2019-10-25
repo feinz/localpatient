@@ -19,7 +19,8 @@
   <script src="{% static 'js/highcharts.js' %}"></script>
   <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
   
-  <!--resp is for responsive iframe design-->
+  {% comment %} .resp is for responsive card design {% endcomment %}
+  {% comment %} .btn to override stock material button color{% endcomment %}
   <style>
   .resp-container {
     position: relative;
@@ -34,11 +35,18 @@
     height: 100%;
     border: 0;
   }
+  .btn {
+    background-color: #ff8a65;
+  }
+  .btn:hover {
+    background-color: #ff7043;
+  }
   </style>
 </head>
 <body>
 {% block sidebar %}
-<nav class="red darken-4" role="navigation">
+{% comment %} nav bar color {% endcomment %}
+<nav class="light-green lighten-1" role="navigation">
   <div class="nav-wrapper container">
     <a href="{% url 'index' %}"><img style="margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);" id="logo-container" href="#" class="center brand-logo" src="{% static 'logo/logo.png' %}"></a>
     <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
