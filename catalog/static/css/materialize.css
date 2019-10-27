@@ -2996,7 +2996,7 @@ table.highlight > tbody > tr {
 }
 
 table.highlight > tbody > tr:hover {
-  background-color: #424242;
+  background-color: rgba(242, 242, 242, 0.5);
 }
 
 table.centered thead tr th, table.centered tbody tr td {
@@ -3004,8 +3004,7 @@ table.centered thead tr th, table.centered tbody tr td {
 }
 
 tr {
-  border-bottom: 2px solid #424242;
-  background-color: #212121;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 td, th {
@@ -3014,8 +3013,6 @@ td, th {
   text-align: left;
   vertical-align: middle;
   border-radius: 2px;
-  /* newly added */
-  padding-left: 35px;
 }
 
 @media only screen and (max-width: 992px) {
@@ -6220,9 +6217,9 @@ input[type=tel]:not(.browser-default):focus:not([readonly]),
 input[type=number]:not(.browser-default):focus:not([readonly]),
 input[type=search]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #bdbdbd;
-  -webkit-box-shadow: 0 1px 0 0 #bdbdbd;
-          box-shadow: 0 1px 0 0 #bdbdbd;
+  border-bottom: 1px solid #26a69a;
+  -webkit-box-shadow: 0 1px 0 0 #26a69a;
+          box-shadow: 0 1px 0 0 #26a69a;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -6238,7 +6235,7 @@ input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
 input[type=number]:not(.browser-default):focus:not([readonly]) + label,
 input[type=search]:not(.browser-default):focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: #bdbdbd;
+  color: #26a69a;
 }
 
 input:not([type]):focus.valid ~ label,
@@ -7185,7 +7182,7 @@ select {
 }
 
 .select-wrapper input.select-dropdown:focus {
-  border-bottom: 1px solid #bdbdbd;
+  border-bottom: 1px solid #26a69a;
 }
 
 .select-wrapper .caret {
@@ -8717,7 +8714,7 @@ input[type=range]::-ms-thumb {
   -webkit-flex: 1 auto;
       -ms-flex: 1 auto;
           flex: 1 auto;
-  background-color: #424242;
+  background-color: #26a69a;
   color: #fff;
   padding: 20px 22px;
   font-weight: 500;
@@ -8775,11 +8772,11 @@ input[type=range]::-ms-thumb {
 }
 
 .datepicker-table td.is-today {
-  color: #2196f3;
+  color: #26a69a;
 }
 
 .datepicker-table td.is-selected {
-  background-color: #424242;
+  background-color: #26a69a;
   color: #fff;
 }
 
@@ -8823,7 +8820,7 @@ input[type=range]::-ms-thumb {
 .datepicker-clear,
 .datepicker-today,
 .datepicker-done {
-  color: #2196f3;
+  color: #26a69a;
   padding: 0 1rem;
 }
 

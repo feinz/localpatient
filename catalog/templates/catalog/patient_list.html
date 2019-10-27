@@ -3,14 +3,14 @@
 <div style="text-align: center;"><h5>Patient List</h5></div>
 <div style="text-align: right;"><button type='button' value='Add Patient' class='waves-effect waves-light btn' onclick="window.location.href='{%url 'patient_create' %}'">Add Patient</button></div>
 {% if patient_list %}
-<table id="patientlist" class="highlight" style="width:100%">
+<table id="patientlist" class="display" style="width:100%">
 <thead>
-  <tr style="background-color: #424242;">
-    <th class="tooltipped" data-tooltip="Click to Sort by Name" data-position="top">Name</th>
-    <th class="tooltipped" data-tooltip="Click to Sort by I.C Number" data-position="top">I.C Number</th>
-    <th class="tooltipped" data-tooltip="Click to Sort by Status" data-position="top">Status</th>
-    <th class="tooltipped" data-tooltip="Click to Sort by Transfer" data-position="top">Transfer</th>
-    <th class="tooltipped" data-tooltip="Click to Sort by Registration Date" data-position="top">Registration Date</th>
+  <tr>
+    <th>Name</th>
+    <th>I.C Number</th>
+    <th>Status</th>
+    <th>Transfer</th>
+    <th>Registration Date</th>
     <th>Options</th>
   </tr>
 </thead>
@@ -23,18 +23,15 @@
     <td>{{patient.transfer}}</td>
     <td>{{patient.time_registered|date:"Y-m-d"}}</td>
     <td>
-      <a class="tooltipped" data-tooltip="View Details" data-position="left" href="{{ patient.get_absolute_url }}" style="color: #bbdefb;">VIEW</a>&nbsp
-      <a class="tooltipped" data-tooltip="Update" data-position="left" href="{{ patient.get_absolute_url }}/update/" style="color: #bbdefb;">UPDATE</a>&nbsp
-      <a class="tooltipped" data-tooltip="Delete" data-position="left" href="{{ patient.get_absolute_url }}/delete/" style="color: #bbdefb;">DELETE</a>
-      {% comment %} <button style="width: 100%;" class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}'" type="button">View</button></br>
+      <button style="width: 100%;" class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}'" type="button">View</button></br>
       <button style="width: 100%;" class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/update/'" type="button">Update</button></br>
-      <button style="width: 100%;" class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/delete/'" type="button">Delete</button> {% endcomment %}
+      <button style="width: 100%;" class='waves-effect waves-light btn' onclick="location.href='{{ patient.get_absolute_url }}/delete/'" type="button">Delete</button>
     </td>
   </tr>
   {% endfor %}
 </tbody>
 <tfoot>
-  <tr style="background-color: #424242;">
+  <tr>
     <th>Name</th>
     <th>I.C Number</th>
     <th>Status</th>
@@ -47,5 +44,5 @@
 {% else %}
 <p>There is no patient registered.</p>
 {% endif %}
-<div style="margin-bottom: 70px;"></div>
+<div style="padding-bottom: 70px;"></div>
 {% endblock %}

@@ -89,39 +89,13 @@
       var patient_year_mia_12 = {{ patient_year_mia_12 }};
       Highcharts.chart('chart', {
         chart: {
-            type: 'column',
-            backgroundColor: '#121212'
+            type: 'column'
         },
         title: {
-            text: 'Patients Statistic For The Year: {{ currentyear }}',
-            style: {
-              color: '#FFFFFF'
-            }
+            text: 'Patients Statistic For The Year: {{ currentyear }}'
         },
         xAxis: {
-            categories: ['Active', 'Rest In Peace', 'Missing'],
-          labels: {
-              style: {
-                  color: '#FFFFFF'
-                  }
-            }
-        },
-        plotOptions: {
-            series: {
-                borderColor: '#121212'
-            }
-        },
-        yAxis: {
-          title: {
-              style: {
-                  color: '#FFFFFF'
-                  }
-            },
-          labels: {
-              style: {
-                  color: '#FFFFFF'
-                  }
-            }
+            categories: ['Active', 'Rest In Peace', 'Missing']
         },
         series: [{
             name: 'Jan',
@@ -171,13 +145,7 @@
             name: 'Dec',
             data: [patient_year_act_12, patient_year_rip_12, patient_year_mia_12],
             color: '#ff9e80'
-            }],
-        legend: {
-          itemStyle: {
-            color: '#FFFFFF',
-            fontWeight: 'normal'
-          }
-        }
+            }]
       });
     }
   </script>
@@ -203,67 +171,35 @@
       var patient_year2019_rip = {{ patient_year2019_rip }};
       Highcharts.chart('chart', {
         chart: {
-            type: 'column',
-            backgroundColor: '#121212'
+            type: 'column'
         },
         title: {
-            text: 'Patients Statistic For All Year',
-            style: {
-              color: '#FFFFFF'
-            }
+            text: 'Patients Statistic For All Year'
         },
         xAxis: {
-            categories: ['Active', 'Rest In Peace', 'Missing'],
-        labels: {
-            style: {
-                color: '#FFFFFF'
-                }
-          }
-        },
-        plotOptions: {
-            series: {
-                borderColor: '#121212'
-            }
-        },
-        yAxis: {
-          title: {
-              style: {
-                  color: '#FFFFFF'
-                  }
-            },
-          labels: {
-              style: {
-                  color: '#FFFFFF'
-                  }
-            }
+            categories: ['Active', 'Rest In Peace', 'Missing']
         },
         series: [{
             name: '2015',
             data: [patient_year2015_act, patient_year2015_rip, patient_year2015_mia],
-            color: '#ea80fc'
+            color: '#311b92'
         }, {
             name: '2016',
             data: [patient_year2016_act, patient_year2016_rip, patient_year2016_mia],
-            color: '#84ffff'
+            color: '#01579b'
         }, {
             name: '2017',
             data: [patient_year2017_act, patient_year2017_rip, patient_year2017_mia],
-            color: '#ccff90'
+            color: '#1b5e20'
         }, {
             name: '2018',
             data: [patient_year2018_act, patient_year2018_rip, patient_year2018_mia],
-            color: '#ffe57f'
+            color: '#f57f17'
         }, {
             name: '2019',
             data: [patient_year2019_act, patient_year2019_rip, patient_year2019_mia],
-            color: '#ffd180'
-        }],
-        legend: {
-          itemStyle: {
-            color: '#FFFFFF',
-            fontWeight: 'normal'
-          }
-        }
+            color: '#bf360c'
+        }]
       });
     }
   </script>

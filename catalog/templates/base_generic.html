@@ -17,10 +17,10 @@
   <script src="{% static 'js/materialize.js' %}"></script>
   <script src="{% static 'js/init.js' %}"></script>
   <script src="{% static 'js/highcharts.js' %}"></script>
-  <script src="{% static 'js/jquery.dataTables.js' %}"></script>
+  <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
   
+  <!--resp is for responsive iframe design-->
   <style>
-  {% comment %} .resp is for responsive card design {% endcomment %}
   .resp-container {
     position: relative;
     overflow: hidden;
@@ -34,32 +34,11 @@
     height: 100%;
     border: 0;
   }
-  {% comment %} overriding stock material color {% endcomment %}
-  .btn {
-    background-color: #1976d2;
-  }
-  .btn:hover {
-    background-color: #1565c0;
-  }
-  .select-dropdown{
-    color: #FFFFFF;
-  }
-  ul.dropdown-content.select-dropdown li span {
-    color: #FFFFFF;
-    background-color: #212121;
-  }
-  input[type=text] {
-  color: white;
-  }
-  input[type=search] {
-  color: white;
-  }
   </style>
 </head>
-<body style="background-color: #121212; color: white;">
+<body>
 {% block sidebar %}
-{% comment %} nav bar color {% endcomment %}
-<nav class="grey darken-3" role="navigation">
+<nav class="red darken-4" role="navigation">
   <div class="nav-wrapper container">
     <a href="{% url 'index' %}"><img style="margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);" id="logo-container" href="#" class="center brand-logo" src="{% static 'logo/logo.png' %}"></a>
     <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
@@ -122,10 +101,6 @@
 {% comment %} materialize selection javascript initialization {% endcomment %}
   $(document).ready(function() {
     $('select').formSelect();
-  });
-{% comment %} materialize tooltip initialization {% endcomment %}
-  $(document).ready(function(){
-    $('.tooltipped').tooltip();
   });
 </script>
 </body>
