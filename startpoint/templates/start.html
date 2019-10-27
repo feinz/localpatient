@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Local Patient</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1.0">
+  <!-- Add additional CSS in static folder -->
+  {% load static %}
+  
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/dataTables.material.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+  <script src="{% static 'js/highcharts.js' %}"></script>
+  <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+  
+  <!--resp is for responsive iframe design-->
+  <style>
+  .resp-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 55%;
+  }
+  .resp-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  </style>
+</head>
+<body>
+  <h5>navigation</h5>
+  <a href="{% url 'patientinfohome' %}"><span>test</span></a></li>
+  </br>
+</body>
+</html>

@@ -11,7 +11,7 @@ from patientinfo.models import Patient
 # from datetime import datetime
 
 @login_required
-def index(request):
+def patientinfohome(request):
     """View function for home page of site."""
 
     # Generate counts of some of the main objects
@@ -170,7 +170,7 @@ def index(request):
     # patient_time_registered = Patient.objects.filter(time_registered=patient_year)
 
     # Render the HTML template index.html with the data in the context variable
-    return render(request, 'index.html', context=context)
+    return render(request, 'patientinfohome.html', context=context)
     
 class PatientListView(LoginRequiredMixin, generic.ListView):
         model = Patient

@@ -25,7 +25,7 @@
   <div id="chart"></div>
     <!--end of Chart-->
   
-  <form method='GET' action='{% url "index" %}' id="graphform">
+  <form method='GET' action='{% url "patientinfohome" %}' id="graphform">
   <div style="text-align:center">
     <button type='submit' name='q' value='2015' class='waves-effect waves-light btn' id='b2015'>2015</button>
     <button type='submit' name='q' value='2016' class='waves-effect waves-light btn' id='b2016'>2016</button>
@@ -38,7 +38,7 @@
   </form>
   </br>
   <!--will not used maybe
-  <form method='GET' action='{% url "index" %}' id="graphform">
+  <form method='GET' action='{% url "patientinfohome" %}' id="graphform">
     <input pattern="[0-9]*" inputmode="numeric" type='number' name='q' placeholder="Or Enter Year" value='{{ request.GET.q }}' id='entry'>
     <button type='submit' value='Filter Year' class='waves-effect waves-light btn' id='sub1'>Go<i class="material-icons right">send</i></button>
   </form>
