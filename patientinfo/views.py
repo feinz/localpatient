@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView #easily create,update,view form
 from django.urls import reverse_lazy
 # importing Patient models
-from catalog.models import Patient
+from patientinfo.models import Patient
 # importing date time
 # from datetime import datetime
 

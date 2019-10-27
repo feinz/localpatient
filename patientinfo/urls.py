@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from django.views.generic import TemplateView
 
-#pattern for catalog application
+#pattern for patientinfo application
 urlpatterns = [
     path('', views.index, name='index'),
     path('patient_list/', views.PatientListView.as_view(), name='patient_list'),

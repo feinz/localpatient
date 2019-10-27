@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from catalog.models import Patient
+from patientinfo.models import Patient
 
 # admin.site.register(patient)
 @admin.register(Patient)
