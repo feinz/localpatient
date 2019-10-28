@@ -42,8 +42,3 @@ class Patient(models.Model):
         """Returns the url to access a detail record for this patient."""
         # ic is the primary key for patient
         return reverse('patient_detail', args=[str(self.identity_card_number)])
-
-    # time
-# class TimeEdit(models.Model):
-#     time_created = models.DateTimeField(auto_now_add=True)
-#     time_modified = models.DateTimeField(auto_now=True)
