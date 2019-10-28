@@ -24,10 +24,10 @@ from django.conf.urls.static import static
 #pattern for localpatient project
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('startpoint/', include('startpoint.urls')), # Use include() to add paths from the patientinfo application 
-    path('patientinfo/', include('patientinfo.urls')),
-    path('staffinfo/', include('staffinfo.urls')),
-    path('appointment/', include('appointment.urls')),
+    path('startpoint/', include('startpoint.urls')), # startpoint app
+    path('patientinfo/', include('patientinfo.urls')), # patientinfo app
+    path('staffinfo/', include('staffinfo.urls')), # staffinfo app
+    path('appointment/', include('appointment.urls')), # appointment app
     path('', RedirectView.as_view(url='/startpoint/', permanent=True)), #Add URL maps to redirect the base URL to our application
     path('accounts/', include('django.contrib.auth.urls')),#site authentication url
 ] #static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # Use static() to add url mapping to serve static files during development (only)

@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 
 #pattern for patientinfo application
 urlpatterns = [
-    path('', views.startpage, name='startpage'),
+    path('', views.startpage, name='startindex'),
     # path('patient_list/', views.PatientListView.as_view(), name='patient_list'),
     # path('patient_detail/<int:pk>', views.PatientDetailView.as_view(), name='patient_detail'),
     # path('patient/create/', views.PatientCreate.as_view(), name='patient_create'),
