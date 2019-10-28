@@ -38,9 +38,13 @@
 </head>
 <body>
 <div class="container">
-  <h5>staff db</h5>
-  <a href="{% url 'startindex' %}"><span>back to starting point</span></a></br>
-  <a href="{% url 'staffregister' %}"><span>register</span></a></br>
+    <h5>registration form</5>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_table}} </br></br>
+        <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">Sign Up</button>
+    </form>
+    If you already have an account <a href="/login" target="blank"><strong>login</strong></a> instead.
 </div>
 </body>
 </html>
